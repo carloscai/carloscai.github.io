@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>CarlosCai.com</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2015-10-01T00:00:00+08:00</updated><entry><title>Software Roadmap</title><link href="/software-roadmap.html" rel="alternate"></link><updated>2015-10-01T00:00:00+08:00</updated><author><name>Carlos Cai</name></author><id>tag:,2015-10-01:software-roadmap.html</id><summary type="html">&lt;!-- MarkdownTOC depth=3 --&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Software Roadmap&lt;ul&gt;
+&lt;li&gt;Editor&lt;ul&gt;
+&lt;li&gt;Editor or IDE ?&lt;/li&gt;
+&lt;li&gt;VIM&lt;/li&gt;
+&lt;li&gt;Sublime Text&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Version Control&lt;ul&gt;
+&lt;li&gt;Git&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Programming&lt;ul&gt;
+&lt;li&gt;Python&lt;/li&gt;
+&lt;li&gt;Regular Expression&lt;/li&gt;
+&lt;li&gt;SQL&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Linux&lt;ul&gt;
+&lt;li&gt;Linux基础教程&lt;/li&gt;
+&lt;li&gt;Linux的配置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- /MarkdownTOC --&gt;
+
+&lt;h1&gt;Software Roadmap&lt;/h1&gt;
+&lt;p&gt;版本历史：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2014.09.03初稿，含Editor、版本控制、正则表达式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我仍独自在摸索软件开发，希望能借它安身立命。这些年走走停停、目标仍然很模糊，我不知是往哪个方向走——嵌入式？APP设计？不妨仔细看看自己已有的东西、扎实基本功后再来决定。&lt;/p&gt;
+&lt;h2&gt;Editor&lt;/h2&gt;
+&lt;h3&gt;Editor or IDE ?&lt;/h3&gt;
+&lt;p&gt;编写代码是要选择Editor还是直接在IDE里写？我的看法是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果你是在一个团队里面，最好按前辈的方式来，这样遇到相关问题也有人可以讨论。&lt;/li&gt;
+&lt;li&gt;如果你是跟我一样是独自探索软件开发的初学者，我建议从Editor开始入手，因为一开始代码量不大、需要的软件特性也不多——能实现基本的语法高亮(syntax highlighting)、代码自动完成(auto completion)、自动缩进等功能就足够了，而这些功能VIM或Sublime Text搭配插件就可以实现，后续再根据需要选择IDE（如PyCharm或Eclipse）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;VIM&lt;/h3&gt;
+&lt;p&gt;VIM（=Vi IMproved）与vi操的作大多兼容，很多Linux发行版会默认安装vi（Ubuntu 14.04上vi软链接到VIM），在命令行下使用VIM修改一些配置文件会比使用nano效率高得多。另外VIM的一些操作在man、less命令也可实现同样的效果，例如按键j/k/h/l表示上/下/左/右的移动。&lt;/p&gt;
+&lt;p&gt;我建议的VIM教程：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;VIM自带的vimtutor&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Sublime Text&lt;/h3&gt;
+&lt;p&gt;pass&lt;/p&gt;
+&lt;h2&gt;Version Control&lt;/h2&gt;
+&lt;p&gt;版本控制（Version Control,或称为Revision control、Source Control），更多应用在源码管理（SCM，Source Code Management）——实现代码改动记录和维护等功能。我第一次正式使用版本控制软件是2012年在职时编写一个产品的固件（Firmware），项目并没有明确要求版本控制，只是我个人为了方便代码管理，选择了使用TortoiseSVN。
+当时，我至少在这几个地方切实得到了好处：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;当前文件与库最新版的相比有差异时，直接在文件图标上提示，相当直观；&lt;/li&gt;
+&lt;li&gt;把代码提交到库时查看跟上一版代码的差异，避免不经意的代码改动；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Git&lt;/h3&gt;
+&lt;p&gt;现在认识到github、Redhat的OpenShift，我开始使用Git。
+我建议的Git教程：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="http://www.liaoxuefeng.com/"&gt;廖雪峰 Git教程&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://git-scm.com/book"&gt;《Pro Git》&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://git-scm.com/docs"&gt;Git Doc&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Programming&lt;/h2&gt;
+&lt;p&gt;Programming（编程）不单是指编程语言，还涵盖代码背后的思维（算法、模式等）。&lt;/p&gt;
+&lt;h3&gt;Python&lt;/h3&gt;
+&lt;p&gt;pass&lt;/p&gt;
+&lt;h4&gt;PySide&lt;/h4&gt;
+&lt;p&gt;pass&lt;/p&gt;
+&lt;h3&gt;Regular Expression&lt;/h3&gt;
+&lt;p&gt;正则表达式(=Regular Expression，简称regex或regexp），需要注意的是在支持正则表达式的编程语言和工具中存在语法差异，基本上有三大流派PCRE（Perl Compatible Regular Expression）、BRE（Basic Regular Expression）、ERE（Extended Regular Expression），其中BRE和ERE是IEEE POSIX 标准定义的。
+以grep为例，它可以支持三种流派。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;grep --help
+Usage: grep &lt;span class="o"&gt;[&lt;/span&gt;OPTION&lt;span class="o"&gt;]&lt;/span&gt;... PATTERN &lt;span class="o"&gt;[&lt;/span&gt;FILE&lt;span class="o"&gt;]&lt;/span&gt;...
+Search &lt;span class="k"&gt;for&lt;/span&gt; PATTERN in each FILE or standard input.
+PATTERN is, by default, a basic regular expression&lt;span class="o"&gt;(&lt;/span&gt;BRE&lt;span class="o"&gt;)&lt;/span&gt;.
+OPTION:
+-E,--extended-regexp        PATTERN is an extended regular expression&lt;span class="o"&gt;(&lt;/span&gt;ERE&lt;span class="o"&gt;)&lt;/span&gt;
+-P,--perl-regexp        PATTERN is a Perl regular expression
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;在编程语言或工具中使用正则表达式，最好浏览下对应的手册。&lt;/p&gt;
+&lt;h3&gt;SQL&lt;/h3&gt;
+&lt;p&gt;pass&lt;/p&gt;
+&lt;h2&gt;Linux&lt;/h2&gt;
+&lt;p&gt;严格来讲Linux是一种操作系统内核，而我们通常提到的Linux更多的是Linux发行版，例如Ubuntu、Fedora、Arch、Gentoo等。就我这种使用者看来，不同Linux发行版的差异主要体现在包管理器——在命令行下软件的安装和卸载使用何种命令，我们在不同发行版上是可以选用同样的桌面环境（例如GNOME、KDE、Xfce等）或应用程序(VIM、Firefox等)，所以我觉得不用纠结于使用何种Linux发行版。&lt;/p&gt;
+&lt;h3&gt;Linux基础教程&lt;/h3&gt;
+&lt;p&gt;&lt;a href="http://linux.vbird.org/"&gt;鸟哥的Linux私房菜&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Linux的配置&lt;/h3&gt;
+&lt;p&gt;pass&lt;/p&gt;</summary><category term="roadmap"></category></entry></feed>
