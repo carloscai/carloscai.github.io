@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>CarlosCai.com</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2015-10-01T00:00:00+08:00</updated><entry><title>Software Roadmap</title><link href="/software-roadmap.html" rel="alternate"></link><updated>2015-10-01T00:00:00+08:00</updated><author><name>Carlos Cai</name></author><id>tag:,2015-10-01:software-roadmap.html</id><summary type="html">&lt;!-- MarkdownTOC depth=3 --&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>CarlosCai.com</title><link href="www.carloscai.com/" rel="alternate"></link><link href="www.carloscai.com/feeds/all.atom.xml" rel="self"></link><id>www.carloscai.com/</id><updated>2015-10-01T00:00:00+08:00</updated><entry><title>Software Roadmap</title><link href="www.carloscai.com/software-roadmap.html" rel="alternate"></link><updated>2015-10-01T00:00:00+08:00</updated><author><name>Carlos Cai</name></author><id>tag:,2015-10-01:www.carloscai.com/software-roadmap.html</id><summary type="html">&lt;!-- MarkdownTOC depth=3 --&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Software Roadmap&lt;ul&gt;
