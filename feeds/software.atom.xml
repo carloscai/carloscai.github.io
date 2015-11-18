@@ -1,8 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>CarlosCai.com</title><link href="http://www.carloscai.com/" rel="alternate"></link><link href="http://www.carloscai.com/feeds/software.atom.xml" rel="self"></link><id>http://www.carloscai.com/</id><updated>2015-10-01T00:00:00+08:00</updated><entry><title>Software Roadmap</title><link href="http://www.carloscai.com/software-roadmap.html" rel="alternate"></link><updated>2015-10-01T00:00:00+08:00</updated><author><name>Carlos Cai</name></author><id>tag:www.carloscai.com,2015-10-01:software-roadmap.html</id><summary type="html">&lt;!-- MarkdownTOC depth=3 --&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>CarlosCai.com</title><link href="http://www.carloscai.com/" rel="alternate"></link><link href="http://www.carloscai.com/feeds/software.atom.xml" rel="self"></link><id>http://www.carloscai.com/</id><updated>2015-11-15T00:00:00+08:00</updated><entry><title>放大字体的解决方案</title><link href="http://www.carloscai.com/Linux-Change-DPI.html" rel="alternate"></link><updated>2015-11-15T00:00:00+08:00</updated><author><name>Carlos Cai</name></author><id>tag:www.carloscai.com,2015-11-01:Linux-Change-DPI.html</id><summary type="html">&lt;h2&gt;前言&lt;/h2&gt;
+&lt;p&gt;在我1080p的显示屏上，KDE默认字体大小显示效果是尺寸小、看得费力，而在"System Settings -&amp;gt; Fonts "中调整字体大小作用的范围有限，例如Chromium的bookmarks bar和Sublime Text3的Status Bar不受影响。&lt;/p&gt;
+&lt;p&gt;在Windows上字体显示小我的解决方案是在"控制面板 -&amp;gt; 显示"将默认的100%调成125%（DPI从96调成120），如下图
+&lt;img alt="Windows7-Enlarge" src="http://www.carloscai.com/images/Windows7-Enlarge-half.png" /&gt;&lt;/p&gt;
+&lt;p&gt;据此，我想调整KDE的DPI来放大或缩小文本和其他项目——我的理解是：96DPI意味着用96个像素距离来表示1英寸，字体的字号是根据英寸来规范、而不是根据像素，当DPI调大同样字号的字体看起来更大。&lt;/p&gt;
+&lt;h2&gt;调整DPI&lt;/h2&gt;
+&lt;p&gt;我们使用xdpyinfo命令可以看到系统默认是96DPI。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;xdpyinfo &lt;span class="p"&gt;|&lt;/span&gt; grep dots
+resolution:    96x96 dots per inch
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;我是通过Display Manger（这里是SDDM)将DPI参数传给Xserver来实现DPI设置。&lt;/p&gt;
+&lt;p&gt;SDDM（Simple Desktop Display Manager）的配置文件是&lt;code&gt;/etc/sddm.conf&lt;/code&gt;，如果在该路径没有找到文件，原因可能是：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;On systems controlled by systemd, everything should work out of the box, since SDDM defaults to using systemd-logind for session management.
+The configuration file will therefore not be created at package installation time.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我们用以下命令手动生成一份&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;# sddm --example-config &amp;gt; /etc/sddm.conf&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在sddm.conf中&lt;code&gt;[XDisplay]&lt;/code&gt;下找到&lt;code&gt;ServerArguments=&lt;/code&gt;，在行尾加上&lt;code&gt;-dpi 120&lt;/code&gt;，重新登录就可以看120DPI的效果。&lt;/p&gt;
+&lt;p&gt;在此我附上Sublime Text3在96DPI和120DPI的对比图，不止是字体，连图标都变大：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Subl-96DPI" src="http://www.carloscai.com/images/Subl-96DPI.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Subl-120DPI" src="http://www.carloscai.com/images/Subl-120DPI.png" /&gt;&lt;/p&gt;
+&lt;p&gt;其他桌面环境应该也可以通过类似方法调整DPI。&lt;/p&gt;
+&lt;h2&gt;SDDM config&lt;/h2&gt;
+&lt;h3&gt;打开键盘NumLock&lt;/h3&gt;
+&lt;p&gt;在sddm.conf中&lt;code&gt;[General]&lt;/code&gt;改&lt;code&gt;Numlock&lt;/code&gt;值为&lt;code&gt;on&lt;/code&gt;实现系统启动到登录界面时键盘的NumLock是打开的。&lt;/p&gt;</summary><category term="Linux"></category></entry><entry><title>Software Roadmap</title><link href="http://www.carloscai.com/software-roadmap.html" rel="alternate"></link><updated>2015-11-15T00:00:00+08:00</updated><author><name>Carlos Cai</name></author><id>tag:www.carloscai.com,2015-10-01:software-roadmap.html</id><summary type="html">&lt;!-- MarkdownTOC depth=3 --&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Software Roadmap&lt;ul&gt;
 &lt;li&gt;Editor&lt;ul&gt;
 &lt;li&gt;Editor or IDE ?&lt;/li&gt;
 &lt;li&gt;VIM&lt;/li&gt;
@@ -21,26 +47,23 @@
 &lt;/li&gt;
 &lt;li&gt;Linux&lt;ul&gt;
 &lt;li&gt;Linux基础教程&lt;/li&gt;
-&lt;li&gt;Linux的配置&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;Linux软件配置&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;!-- /MarkdownTOC --&gt;
 
-&lt;h1&gt;Software Roadmap&lt;/h1&gt;
 &lt;p&gt;版本历史：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;2014.09.03初稿，含Editor、版本控制、正则表达式。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;我仍独自在摸索软件开发，希望能借它安身立命。这些年走走停停、目标仍然很模糊，我不知是往哪个方向走——嵌入式？APP设计？不妨仔细看看自己已有的东西、扎实基本功后再来决定。&lt;/p&gt;
+&lt;p&gt;我仍独自在摸索软件开发，希望能借它安身立命，但却走走停停、目标模糊。&lt;/p&gt;
 &lt;h2&gt;Editor&lt;/h2&gt;
 &lt;h3&gt;Editor or IDE ?&lt;/h3&gt;
 &lt;p&gt;编写代码是要选择Editor还是直接在IDE里写？我的看法是：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;如果你是在一个团队里面，最好按前辈的方式来，这样遇到相关问题也有人可以讨论。&lt;/li&gt;
-&lt;li&gt;如果你是跟我一样是独自探索软件开发的初学者，我建议从Editor开始入手，因为一开始代码量不大、需要的软件特性也不多——能实现基本的语法高亮(syntax highlighting)、代码自动完成(auto completion)、自动缩进等功能就足够了，而这些功能VIM或Sublime Text搭配插件就可以实现，后续再根据需要选择IDE（如PyCharm或Eclipse）。&lt;/li&gt;
+&lt;li&gt;如果你跟我一样是独自探索软件开发的初学者，我建议从Editor开始入手，因为一开始代码量不大、需要的软件特性也不多——能实现基本的语法高亮(syntax highlighting)、代码自动完成(auto completion)、自动缩进等功能就足够了，而这些功能VIM或Sublime Text搭配插件就可以实现，后续再根据需要选择IDE（如PyCharm或Eclipse）。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;VIM&lt;/h3&gt;
 &lt;p&gt;VIM（=Vi IMproved）与vi操的作大多兼容，很多Linux发行版会默认安装vi（Ubuntu 14.04上vi软链接到VIM），在命令行下使用VIM修改一些配置文件会比使用nano效率高得多。另外VIM的一些操作在man、less命令也可实现同样的效果，例如按键j/k/h/l表示上/下/左/右的移动。&lt;/p&gt;
@@ -66,7 +89,7 @@
 &lt;li&gt;&lt;a href="http://git-scm.com/docs"&gt;Git Doc&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2&gt;Programming&lt;/h2&gt;
-&lt;p&gt;Programming（编程）不单是指编程语言，还涵盖代码背后的思维（算法、模式等）。&lt;/p&gt;
+&lt;p&gt;Programming（编程）不单是指编程语言，还涵盖代码背后的思维（算法、设计模式等）。&lt;/p&gt;
 &lt;h3&gt;Python&lt;/h3&gt;
 &lt;p&gt;pass&lt;/p&gt;
 &lt;h4&gt;PySide&lt;/h4&gt;
@@ -88,8 +111,11 @@ OPTION:
 &lt;h3&gt;SQL&lt;/h3&gt;
 &lt;p&gt;pass&lt;/p&gt;
 &lt;h2&gt;Linux&lt;/h2&gt;
-&lt;p&gt;严格来讲Linux是一种操作系统内核，而我们通常提到的Linux更多的是Linux发行版，例如Ubuntu、Fedora、Arch、Gentoo等。就我这种使用者看来，不同Linux发行版的差异主要体现在包管理器——在命令行下软件的安装和卸载使用何种命令，我们在不同发行版上是可以选用同样的桌面环境（例如GNOME、KDE、Xfce等）或应用程序(VIM、Firefox等)，所以我觉得不用纠结于使用何种Linux发行版。&lt;/p&gt;
+&lt;p&gt;严格来讲Linux是一种操作系统内核，而我们通常提到的Linux更多的是Linux发行版，例如Debian、Ubuntu、Fedora、Arch、Gentoo等。就我这种使用者看来，不同Linux发行版的差异主要体现在包管理器——在命令行下软件的安装和卸载使用何种命令，我们在不同发行版上是可以选用同样的桌面环境（例如GNOME、KDE、Xfce等）或应用程序(VIM、Firefox等)，所以初学者不用纠结于使用何种Linux发行版。&lt;/p&gt;
 &lt;h3&gt;Linux基础教程&lt;/h3&gt;
-&lt;p&gt;&lt;a href="http://linux.vbird.org/"&gt;鸟哥的Linux私房菜&lt;/a&gt;&lt;/p&gt;
-&lt;h3&gt;Linux的配置&lt;/h3&gt;
-&lt;p&gt;pass&lt;/p&gt;</summary><category term="roadmap"></category></entry></feed>
+&lt;p&gt;我建议的教程：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://linux.vbird.org/"&gt;鸟哥的Linux私房菜&lt;/a&gt;,它是有印刷成书、分成基础学习篇和服务器架设篇两本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Linux软件配置&lt;/h3&gt;
+&lt;p&gt;Linux软件安装和配置，我通常是查看Linux发行版的wiki，例如&lt;a href="https://wiki.archlinux.org/"&gt;ArchWiki&lt;/a&gt;，或者用Google搜索。&lt;/p&gt;</summary><category term="roadmap"></category></entry></feed>

@@ -5,11 +5,10 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="author" content="Carlos Cai" />
-        <meta name="description" content="" />
+    <meta name="keywords" content="Linux" />
 
 
-    <title>CarlosCai.com</title>
+    <title>Linux - CarlosCai.com</title>
 
         <link rel="stylesheet" href="http://www.carloscai.com/theme/css/bootstrap.min.css" type="text/css" />
 
@@ -100,9 +99,23 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-<ul>
-    <li><a href="http://www.carloscai.com/category/software.html">Software</a></li>
-</ul>
+<div class="row">
+    <div class="col-lg-9">
+        <header class="page-header">
+            <h1>Articles featuring Linux</h1>
+        </header>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-9">
+            <article>
+                <h4>
+                    <time datetime="2015-11-01T00:00:00+08:00"> Sun 01 November 2015</time>
+                    <a href="http://www.carloscai.com/Linux-Change-DPI.html">放大字体的解决方案</a>
+                </h4>
+            </article>
+    </div>
+</div>
 <footer>
     <hr>
     <div class="row">
@@ -124,5 +137,24 @@
     <script src="http://www.carloscai.com/theme/js/bootstrap.min.js"></script>
     <!-- twitchy Script -->
     <script src="http://www.carloscai.com/theme/js/pelican_twitchy.min.js"></script>
+<script>
+    function FadeInOnScroll(ObjectList){
+        ObjectList.each(function(i) {
+            var bottom_of_object = $(this).position().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            if( bottom_of_window > bottom_of_object ){
+                $(this).fadeTo(750,1);
+            }
+        });
+    }
+
+    articles = $("article").fadeTo(0, 0.05);
+    FadeInOnScroll(articles)
+
+    $(window).scroll(function() {
+        FadeInOnScroll(articles)
+    });
+</script>
 </body>
 </html>
