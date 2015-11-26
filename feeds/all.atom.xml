@@ -33,6 +33,7 @@ The configuration file will therefore not be created at package installation tim
 &lt;li&gt;Editor or IDE ?&lt;/li&gt;
 &lt;li&gt;VIM&lt;/li&gt;
 &lt;li&gt;Sublime Text&lt;/li&gt;
+&lt;li&gt;Eclipse&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Version Control&lt;ul&gt;
@@ -40,16 +41,17 @@ The configuration file will therefore not be created at package installation tim
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Programming&lt;ul&gt;
+&lt;li&gt;C&lt;/li&gt;
 &lt;li&gt;Python&lt;/li&gt;
 &lt;li&gt;Regular Expression&lt;/li&gt;
 &lt;li&gt;SQL&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Linux&lt;ul&gt;
-&lt;li&gt;Linux基础教程&lt;/li&gt;
-&lt;li&gt;Linux软件配置&lt;/li&gt;
+&lt;li&gt;Linux软件安装和配置&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;li&gt;嵌入式开发&lt;/li&gt;
 &lt;/ul&gt;
 &lt;!-- /MarkdownTOC --&gt;
 
@@ -57,7 +59,7 @@ The configuration file will therefore not be created at package installation tim
 &lt;ul&gt;
 &lt;li&gt;2014.09.03初稿，含Editor、版本控制、正则表达式。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;我仍独自在摸索软件开发，希望能借它安身立命，但却走走停停、目标模糊。&lt;/p&gt;
+&lt;p&gt;我仍独自在摸索软件开发，希望能借它安身立命。&lt;/p&gt;
 &lt;h2&gt;Editor&lt;/h2&gt;
 &lt;h3&gt;Editor or IDE ?&lt;/h3&gt;
 &lt;p&gt;编写代码是要选择Editor还是直接在IDE里写？我的看法是：&lt;/p&gt;
@@ -72,7 +74,9 @@ The configuration file will therefore not be created at package installation tim
 &lt;li&gt;VIM自带的vimtutor&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Sublime Text&lt;/h3&gt;
-&lt;p&gt;pass&lt;/p&gt;
+&lt;p&gt;我使用Sublime Text多是写Python代码(Anaconda插件)和Markdown文本(MarkdownEditing插件)。&lt;/p&gt;
+&lt;h3&gt;Eclipse&lt;/h3&gt;
+&lt;p&gt;我写ARM代码时会用Eclipse。&lt;/p&gt;
 &lt;h2&gt;Version Control&lt;/h2&gt;
 &lt;p&gt;版本控制（Version Control,或称为Revision control、Source Control），更多应用在源码管理（SCM，Source Code Management）——实现代码改动记录和维护等功能。我第一次正式使用版本控制软件是2012年在职时编写一个产品的固件（Firmware），项目并没有明确要求版本控制，只是我个人为了方便代码管理，选择了使用TortoiseSVN。
 当时，我至少在这几个地方切实得到了好处：&lt;/p&gt;
@@ -90,6 +94,9 @@ The configuration file will therefore not be created at package installation tim
 &lt;/ol&gt;
 &lt;h2&gt;Programming&lt;/h2&gt;
 &lt;p&gt;Programming（编程）不单是指编程语言，还涵盖代码背后的思维（算法、设计模式等）。&lt;/p&gt;
+&lt;h3&gt;C&lt;/h3&gt;
+&lt;p&gt;我建议的C教程：&lt;/p&gt;
+&lt;p&gt;+&lt;/p&gt;
 &lt;h3&gt;Python&lt;/h3&gt;
 &lt;p&gt;pass&lt;/p&gt;
 &lt;h4&gt;PySide&lt;/h4&gt;
@@ -112,10 +119,14 @@ OPTION:
 &lt;p&gt;pass&lt;/p&gt;
 &lt;h2&gt;Linux&lt;/h2&gt;
 &lt;p&gt;严格来讲Linux是一种操作系统内核，而我们通常提到的Linux更多的是Linux发行版，例如Debian、Ubuntu、Fedora、Arch、Gentoo等。就我这种使用者看来，不同Linux发行版的差异主要体现在包管理器——在命令行下软件的安装和卸载使用何种命令，我们在不同发行版上是可以选用同样的桌面环境（例如GNOME、KDE、Xfce等）或应用程序(VIM、Firefox等)，所以初学者不用纠结于使用何种Linux发行版。&lt;/p&gt;
-&lt;h3&gt;Linux基础教程&lt;/h3&gt;
 &lt;p&gt;我建议的教程：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://linux.vbird.org/"&gt;鸟哥的Linux私房菜&lt;/a&gt;,它是有印刷成书、分成基础学习篇和服务器架设篇两本。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Linux软件配置&lt;/h3&gt;
-&lt;p&gt;Linux软件安装和配置，我通常是查看Linux发行版的wiki，例如&lt;a href="https://wiki.archlinux.org/"&gt;ArchWiki&lt;/a&gt;，或者用Google搜索。&lt;/p&gt;</summary><category term="roadmap"></category></entry></feed>
+&lt;h3&gt;Linux软件安装和配置&lt;/h3&gt;
+&lt;p&gt;Linux软件安装和配置，我通常是查看Linux发行版的wiki，例如&lt;a href="https://wiki.archlinux.org/"&gt;ArchWiki&lt;/a&gt;，或者用Google搜索。&lt;/p&gt;
+&lt;h2&gt;嵌入式开发&lt;/h2&gt;
+&lt;p&gt;我建议的教程：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;《嵌入式Linux应用开发完全手册》，作者是韦东山。&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="roadmap"></category></entry></feed>
