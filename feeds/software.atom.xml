@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>CarlosCai.com</title><link href="http://www.carloscai.com/" rel="alternate"></link><link href="http://www.carloscai.com/feeds/software.atom.xml" rel="self"></link><id>http://www.carloscai.com/</id><updated>2015-11-15T00:00:00+08:00</updated><entry><title>放大字体的解决方案</title><link href="http://www.carloscai.com/Linux-Change-DPI.html" rel="alternate"></link><updated>2015-11-15T00:00:00+08:00</updated><author><name>Carlos Cai</name></author><id>tag:www.carloscai.com,2015-11-01:Linux-Change-DPI.html</id><summary type="html">&lt;h2&gt;前言&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>CarlosCai.com</title><link href="http://www.carloscai.com/" rel="alternate"></link><link href="http://www.carloscai.com/feeds/software.atom.xml" rel="self"></link><id>http://www.carloscai.com/</id><updated>2015-12-03T00:00:00+08:00</updated><entry><title>放大字体的解决方案</title><link href="http://www.carloscai.com/Linux-Change-DPI.html" rel="alternate"></link><updated>2015-11-15T00:00:00+08:00</updated><author><name>Carlos Cai</name></author><id>tag:www.carloscai.com,2015-11-01:Linux-Change-DPI.html</id><summary type="html">&lt;h2&gt;前言&lt;/h2&gt;
 &lt;p&gt;在我1080p的显示屏上，KDE默认字体大小显示效果是尺寸小、看得费力，而在"System Settings -&amp;gt; Fonts "中调整字体大小作用的范围有限，例如Chromium的bookmarks bar和Sublime Text3的Status Bar不受影响。&lt;/p&gt;
 &lt;p&gt;在Windows上字体显示小我的解决方案是在"控制面板 -&amp;gt; 显示"将默认的100%调成125%（DPI从96调成120），如下图
 &lt;img alt="Windows7-Enlarge" src="http://www.carloscai.com/images/Windows7-Enlarge-half.png" /&gt;&lt;/p&gt;
@@ -73,10 +73,24 @@ The configuration file will therefore not be created at package installation tim
 &lt;ul&gt;
 &lt;li&gt;VIM自带的vimtutor&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;我常用的VIM插件：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/VundleVim/Vundle.vim"&gt;插件管理器Vundle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/scrooloose/nerdtree"&gt;nerdtree&lt;/a&gt; 和 &lt;a href="https://github.com/Xuyuanp/nerdtree-git-plugin"&gt;nerdtree-git-plugin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/terryma/vim-multiple-cursors"&gt;vim-multiple-cursors&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Raimondi/delimitMate"&gt;delimitMate&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/bling/vim-airline"&gt;airline&lt;/a&gt; ，是powerline的一个衍生品。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3&gt;Sublime Text&lt;/h3&gt;
-&lt;p&gt;我使用Sublime Text多是写Python代码(Anaconda插件)和Markdown文本(MarkdownEditing插件)。&lt;/p&gt;
+&lt;p&gt;我使用Sublime Text多是写Python代码和Markdown文本。&lt;/p&gt;
+&lt;p&gt;我常用的subl插件：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;插件管理器Package Control&lt;/li&gt;
+&lt;li&gt;Anaconda插件&lt;/li&gt;
+&lt;li&gt;MarkdownEditing插件&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3&gt;Eclipse&lt;/h3&gt;
-&lt;p&gt;我写ARM代码时会用Eclipse。&lt;/p&gt;
+&lt;p&gt;pass&lt;/p&gt;
 &lt;h2&gt;Version Control&lt;/h2&gt;
 &lt;p&gt;版本控制（Version Control,或称为Revision control、Source Control），更多应用在源码管理（SCM，Source Code Management）——实现代码改动记录和维护等功能。我第一次正式使用版本控制软件是2012年在职时编写一个产品的固件（Firmware），项目并没有明确要求版本控制，只是我个人为了方便代码管理，选择了使用TortoiseSVN。
 当时，我至少在这几个地方切实得到了好处：&lt;/p&gt;
@@ -96,7 +110,9 @@ The configuration file will therefore not be created at package installation tim
 &lt;p&gt;Programming（编程）不单是指编程语言，还涵盖代码背后的思维（算法、设计模式等）。&lt;/p&gt;
 &lt;h3&gt;C&lt;/h3&gt;
 &lt;p&gt;我建议的C教程：&lt;/p&gt;
-&lt;p&gt;+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;《C语言程序设计现代方法》&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3&gt;Python&lt;/h3&gt;
 &lt;p&gt;pass&lt;/p&gt;
 &lt;h4&gt;PySide&lt;/h4&gt;
@@ -129,4 +145,77 @@ OPTION:
 &lt;p&gt;我建议的教程：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;《嵌入式Linux应用开发完全手册》，作者是韦东山。&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="roadmap"></category></entry></feed>
+&lt;/ul&gt;</summary><category term="roadmap"></category></entry><entry><title>统一换行符</title><link href="http://www.carloscai.com/unify-line-ending.html" rel="alternate"></link><updated>2015-12-03T00:00:00+08:00</updated><author><name>Carlos Cai</name></author><id>tag:www.carloscai.com,2014-09-03:unify-line-ending.html</id><summary type="html">&lt;h2&gt;换行符的编码&lt;/h2&gt;
+&lt;p&gt;换行符的前世今生可以参考&lt;a href="http://www.jianshu.com/p/c5bd0fa864ff"&gt;"回车与换行的由来"&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;换行(newline)，也被称为line ending或line break，是一个加在一行文字最后位置的特殊字符，在其后的字符将出现在下一行。
+我们的问题在于不同操作系统上换行符的默认编码不同,这里列出常见的几个桌面操作系统：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Unix和类Unix系统（Linux，Mac OS X，FreeBSD等）用&lt;code&gt;\n&lt;/code&gt;表示换行符；&lt;/li&gt;
+&lt;li&gt;DOS和Microsoft Windows用&lt;code&gt;\r\n&lt;/code&gt;表示换行符。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;转义字符&lt;/th&gt;
+&lt;th&gt;名称&lt;/th&gt;
+&lt;th&gt;ASCII码&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;\n&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;LF(Line Feed)，换行&lt;/td&gt;
+&lt;td&gt;0x0A=10&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;\r&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;CR(Carriage Return)，回车&lt;/td&gt;
+&lt;td&gt;0x0D=13&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;现在的文本编辑器能正确识别和编辑这两种换行符的文本文档，例如Vim和Sublime Text等，Windows的记事本除外。不过由于hashbang后必须以&lt;code&gt;\n&lt;/code&gt;这种Unix换行符结束等原因，我建议统一换行符为'\n'。&lt;/p&gt;
+&lt;h2&gt;hashbang&lt;/h2&gt;
+&lt;p&gt;以&lt;code&gt;#!&lt;/code&gt;符号开头、放在脚本文件首行的语句被称为hashbang或&lt;a href="http://en.wikipedia.org/wiki/hashbang"&gt;shebang&lt;/a&gt;，作用是自动选择对应的解释器，这仅当文件作为可执行脚本直接运行时有效。
+需要执行的Python脚本第一行通常是
+&lt;code&gt;#!/usr/bin/env python_version&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;例如，在Ubuntu下，envPy2.py文件内容如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/env python2&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;platform&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;The python version is {} .&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;platform&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;python_version&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;envPy3.py文件内容如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;platform&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;The python version is {} .&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;platform&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;python_version&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;脚本运行及其结果：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;chmod +x envPy2.py envPy3.py
+&lt;span class="nv"&gt;$ &lt;/span&gt;./envPy2.py
+The python version is 2.7.6 .
+&lt;span class="nv"&gt;$ &lt;/span&gt;./envPy3.py
+The python version is 3.4.0 .
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;需要注意的是，在某些平台上（例如Ubuntu）hashbang行必须以&lt;code&gt;\n&lt;/code&gt;这种Unix换行符结束，不能以&lt;code&gt;\r\n&lt;/code&gt;为行的结束。否则文件作为可执行脚本运行时，会得到这样的结果&lt;code&gt;: No such file or directory&lt;/code&gt;，而使用命令&lt;code&gt;python scriptName&lt;/code&gt;却又正常运行脚本。&lt;/p&gt;
+&lt;p&gt;所以我建议在代码中统一使用Unix-style line ending，并做相关设定：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt; 关闭git line ending的自动转换&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git config --global core.autocrlf &lt;span class="nb"&gt;false&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt; Sublime Text换行符设定 &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Sublime Text菜单Preferences-&amp;gt;Settings-User，加入以下两行：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&amp;quot; default_line_ending&amp;quot;: &amp;quot;unix&amp;quot;，
+&amp;quot; show_line_endings&amp;quot;: true,
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这样Sublime Tex新建文件换行符都是&lt;code&gt;\n&lt;/code&gt;，而且在编辑器右下角的状态栏可以看到当前文件是哪种换行符格式。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt; VIM换行符设定 &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在文件_vimrc（Windows）或~/.vimrc(Cygwin)中添加一行 &lt;code&gt;set ffs=unix,dos&lt;/code&gt;,设置以后VIM新建的文档换行符将会是&lt;code&gt;\n&lt;/code&gt;，但不会自动转换dos换行符的文档，转换可参考&lt;a href="http://vim.wikia.com/wiki/File_format"&gt;File format&lt;/a&gt;&lt;/p&gt;</summary></entry></feed>
