@@ -10,13 +10,14 @@
         <meta name="description" content="我的软件开发探索之路" />
 
 
-    <title>Software Roadmap - CarlosCai.com</title>
+    <title>Software Roadmap[持续更新] - CarlosCai.com</title>
 
         <link rel="stylesheet" href="http://www.carloscai.com/theme/css/bootstrap.min.css" type="text/css" />
 
     <link href="http://www.carloscai.com/theme/css/font-awesome.min.css" rel="stylesheet" />
     <link href="http://www.carloscai.com/theme/css/pygments/native.css" rel="stylesheet" />
     
+        <link href="http://www.carloscai.com/theme/css/typogrify.css" rel="stylesheet" />
     <link href="http://www.carloscai.com/theme/css/pelican-twitchy.min.css" rel="stylesheet" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -109,15 +110,15 @@
                     <h1>
                         <a href="http://www.carloscai.com/software-roadmap.html"
                            rel="bookmark"
-                           title="Permalink to Software Roadmap">
-                            Software Roadmap
+                           title="Permalink to Software Roadmap[持续更新]">
+                            Software&nbsp;Roadmap[持续更新]
                         </a>
                         <small>
 <div class="post-info">
     <div class="publish-info-block">
         <small>
             <span class="published">
-                <i class="fa fa-calendar padding-small"></i><time datetime="2015-10-01T00:00:00+08:00"> Thu 01 October 2015</time>
+                <i class="fa fa-calendar padding-small"></i><time datetime="2015-10-01T00:00:00+08:00"> 2015-10-01</time>
             </span>
             <span class="category">
                 <i class="fa fa-folder-open padding-small"></i><a href="http://www.carloscai.com/category/software.html">Software</a>
@@ -135,52 +136,24 @@
         <div class="row">
             <div class="col-lg-9">
                 <div class="entry-content">
-                    <!-- MarkdownTOC depth=3 -->
-
-<ul>
-<li>Editor<ul>
-<li>Editor or IDE ?</li>
-<li>VIM</li>
-<li>Sublime Text</li>
-<li>Eclipse</li>
-</ul>
-</li>
-<li>Version Control<ul>
-<li>Git</li>
-</ul>
-</li>
-<li>Programming<ul>
-<li>C</li>
-<li>Python</li>
-<li>Regular Expression</li>
-<li>SQL</li>
-</ul>
-</li>
-<li>Linux<ul>
-<li>Linux软件安装和配置</li>
-</ul>
-</li>
-<li>嵌入式开发</li>
-</ul>
-<!-- /MarkdownTOC -->
-
-<p>版本历史：</p>
+                    <p>版本历史：</p>
 <ul>
 <li>2014.09.03初稿，含Editor、版本控制、正则表达式。</li>
 </ul>
 <p>我仍独自在摸索软件开发，希望能借它安身立命。</p>
-<h2>Editor</h2>
-<h3>Editor or IDE ?</h3>
+<h2 id="editor">Editor</h2>
+<h3 id="editor-or-ide">Editor or <span class="caps">IDE</span>&nbsp;?</h3>
 <p>编写代码是要选择Editor还是直接在IDE里写？我的看法是：</p>
 <ul>
 <li>如果你是在一个团队里面，最好按前辈的方式来，这样遇到相关问题也有人可以讨论。</li>
-<li>如果你跟我一样是独自探索软件开发的初学者，我建议从Editor开始入手，因为一开始代码量不大、需要的软件特性也不多——能实现基本的语法高亮(syntax highlighting)、代码自动完成(auto completion)、自动缩进等功能就足够了，而这些功能VIM或Sublime Text搭配插件就可以实现，后续再根据需要选择IDE（如PyCharm或Eclipse）。</li>
+<li>如果你跟我一样是独自探索软件开发的初学者，我建议从Editor开始入手，因为一开始代码量不大、需要的软件特性也不多&mdash;&mdash;能实现基本的语法高亮(syntax highlighting)、代码自动完成(auto completion)、自动缩进等功能就足够了，而这些功能VIM或Sublime&nbsp;Text搭配插件就可以实现，后续再根据需要选择IDE（如PyCharm或Eclipse）。</li>
 </ul>
-<h3>VIM</h3>
-<p>VIM（=Vi IMproved）与vi操的作大多兼容，很多Linux发行版会默认安装vi（Ubuntu 14.04上vi软链接到VIM），在命令行下使用VIM修改一些配置文件会比使用nano效率高得多。另外VIM的一些操作在man、less命令也可实现同样的效果，例如按键j/k/h/l表示上/下/左/右的移动。</p>
+<h3 id="vim"><span class="caps">VIM</span></h3>
+<p><span class="caps">VIM</span>（=Vi IMproved）与vi操的作大多兼容，很多Linux发行版会默认安装vi（Ubuntu&nbsp;14.04上vi软链接到VIM），在命令行下使用VIM修改一些配置文件会比使用nano效率高得多。另外VIM的一些操作在man、less命令也可实现同样的效果，例如按键j/k/h/l表示上/下/左/右的移动。</p>
 <p>我建议的VIM教程：</p>
 <ul>
 <li>VIM自带的vimtutor</li>
+<li><a href="http://vimdoc.sourceforge.net/htmldoc/"><span class="caps">VIM</span> DOC英文原版</a>,<a href="http://vimcdoc.sourceforge.net/">中文版</a></li>
 </ul>
 <p>我常用的VIM插件：</p>
 <ul>
@@ -188,48 +161,45 @@
 <li><a href="https://github.com/scrooloose/nerdtree">nerdtree</a> 和 <a href="https://github.com/Xuyuanp/nerdtree-git-plugin">nerdtree-git-plugin</a></li>
 <li><a href="https://github.com/terryma/vim-multiple-cursors">vim-multiple-cursors</a></li>
 <li><a href="https://github.com/Raimondi/delimitMate">delimitMate</a></li>
-<li><a href="https://github.com/bling/vim-airline">airline</a> ，是powerline的一个衍生品。</li>
+<li><a href="https://github.com/bling/vim-airline">airline</a>&nbsp;，是powerline的一个衍生品。</li>
 </ul>
-<h3>Sublime Text</h3>
-<p>我使用Sublime Text多是写Python代码和Markdown文本。</p>
-<p>我常用的subl插件：</p>
+<h3 id="sublime-text">Sublime&nbsp;Text</h3>
+<p>我使用Sublime Text多是写Python代码和Markdown文本。<br/>&nbsp;我常用的subl插件：</p>
 <ul>
-<li>插件管理器Package Control</li>
+<li>插件管理器Package&nbsp;Control</li>
 <li>Anaconda插件</li>
 <li>MarkdownEditing插件</li>
 </ul>
-<h3>Eclipse</h3>
+<h3 id="eclipse">Eclipse</h3>
 <p>pass</p>
-<h2>Version Control</h2>
-<p>版本控制（Version Control,或称为Revision control、Source Control），更多应用在源码管理（SCM，Source Code Management）——实现代码改动记录和维护等功能。我第一次正式使用版本控制软件是2012年在职时编写一个产品的固件（Firmware），项目并没有明确要求版本控制，只是我个人为了方便代码管理，选择了使用TortoiseSVN。
-当时，我至少在这几个地方切实得到了好处：</p>
+<h2 id="version-control_1">Version&nbsp;Control</h2>
+<p>版本控制（Version Control,或称为Revision control、Source Control），更多应用在源码管理（<span class="caps">SCM</span>，Source Code Management），实现代码改动记录和维护等功能。<br/>
+我第一次正式使用版本控制软件是2012年在职时编写一个产品的固件（Firmware），项目并没有明确要求版本控制，只是我个人为了方便代码管理，选择了使用TortoiseSVN。<br/>&nbsp;当时，我至少在这几个地方切实得到了好处：</p>
 <ol>
 <li>当前文件与库最新版的相比有差异时，直接在文件图标上提示，相当直观；</li>
 <li>把代码提交到库时查看跟上一版代码的差异，避免不经意的代码改动；</li>
 </ol>
-<h3>Git</h3>
-<p>现在认识到github、Redhat的OpenShift，我开始使用Git。
-我建议的Git教程：</p>
+<h3 id="git">Git</h3>
+<p>现在认识到github、Redhat的OpenShift，我开始使用Git。<br/>&nbsp;我建议的Git教程：</p>
 <ol>
-<li><a href="http://www.liaoxuefeng.com/">廖雪峰 Git教程</a></li>
-<li><a href="http://git-scm.com/book">《Pro Git》</a></li>
-<li><a href="http://git-scm.com/docs">Git Doc</a></li>
+<li><a href="http://www.liaoxuefeng.com/">廖雪峰&nbsp;Git教程</a></li>
+<li><a href="http://git-scm.com/book">《Pro&nbsp;Git》</a></li>
+<li><a href="http://git-scm.com/docs">Git&nbsp;Doc</a></li>
 </ol>
-<h2>Programming</h2>
+<h2 id="programming_1">Programming</h2>
 <p>Programming（编程）不单是指编程语言，还涵盖代码背后的思维（算法、设计模式等）。</p>
-<h3>C</h3>
+<h3 id="c">C</h3>
 <p>我建议的C教程：</p>
 <ul>
 <li>《C语言程序设计现代方法》</li>
 </ul>
-<h3>Python</h3>
+<h3 id="python">Python</h3>
 <p>pass</p>
-<h4>PySide</h4>
+<h4 id="pyside">PySide</h4>
 <p>pass</p>
-<h3>Regular Expression</h3>
-<p>正则表达式(=Regular Expression，简称regex或regexp），需要注意的是在支持正则表达式的编程语言和工具中存在语法差异，基本上有三大流派PCRE（Perl Compatible Regular Expression）、BRE（Basic Regular Expression）、ERE（Extended Regular Expression），其中BRE和ERE是IEEE POSIX 标准定义的。
-以grep为例，它可以支持三种流派。</p>
-<div class="highlight"><pre><span class="nv">$ </span>grep --help
+<h3 id="regular-expression_1">Regular&nbsp;Expression</h3>
+<p>正则表达式(=Regular Expression，简称regex或regexp），需要注意的是在支持正则表达式的编程语言和工具中存在语法差异，基本上有三大流派PCRE（Perl Compatible Regular Expression）、<span class="caps">BRE</span>（Basic Regular Expression）、<span class="caps">ERE</span>（Extended Regular Expression），其中BRE和ERE是IEEE <span class="caps">POSIX</span> 标准定义的。<br/>&nbsp;以grep为例，它可以支持三种流派。</p>
+<div class="default"><pre><span class="nv">$ </span>grep --help
 Usage: grep <span class="o">[</span>OPTION<span class="o">]</span>... PATTERN <span class="o">[</span>FILE<span class="o">]</span>...
 Search <span class="k">for</span> PATTERN in each FILE or standard input.
 PATTERN is, by default, a basic regular expression<span class="o">(</span>BRE<span class="o">)</span>.
@@ -237,20 +207,18 @@ OPTION:
 -E,--extended-regexp        PATTERN is an extended regular expression<span class="o">(</span>ERE<span class="o">)</span>
 -P,--perl-regexp        PATTERN is a Perl regular expression
 </pre></div>
-
-
 <p>在编程语言或工具中使用正则表达式，最好浏览下对应的手册。</p>
-<h3>SQL</h3>
+<h3 id="sql"><span class="caps">SQL</span></h3>
 <p>pass</p>
-<h2>Linux</h2>
-<p>严格来讲Linux是一种操作系统内核，而我们通常提到的Linux更多的是Linux发行版，例如Debian、Ubuntu、Fedora、Arch、Gentoo等。就我这种使用者看来，不同Linux发行版的差异主要体现在包管理器——在命令行下软件的安装和卸载使用何种命令，我们在不同发行版上是可以选用同样的桌面环境（例如GNOME、KDE、Xfce等）或应用程序(VIM、Firefox等)，所以初学者不用纠结于使用何种Linux发行版。</p>
+<h2 id="linux_1">Linux</h2>
+<p>严格来讲Linux是指一种操作系统内核，而我们通常提到的Linux更多的是指Linux发行版，例如Debian、Ubuntu、Fedora、Arch、Gentoo等。就我这种使用者看来，不同Linux发行版的差异主要体现在包管理器&mdash;&mdash;在命令行下软件的安装和卸载使用何种命令，我们在不同发行版上是可以选用同样的桌面环境（例如GNOME、<span class="caps">KDE</span>、Xfce等）或应用程序(<span class="caps">VIM</span>、Firefox等)，所以初学者不用纠结于使用何种Linux发行版。</p>
 <p>我建议的教程：</p>
 <ul>
 <li><a href="http://linux.vbird.org/">鸟哥的Linux私房菜</a>,它是有印刷成书、分成基础学习篇和服务器架设篇两本。</li>
 </ul>
-<h3>Linux软件安装和配置</h3>
+<h3 id="linux_2">Linux软件安装和配置</h3>
 <p>Linux软件安装和配置，我通常是查看Linux发行版的wiki，例如<a href="https://wiki.archlinux.org/">ArchWiki</a>，或者用Google搜索。</p>
-<h2>嵌入式开发</h2>
+<h2 id="_2">嵌入式开发</h2>
 <p>我建议的教程：</p>
 <ul>
 <li>《嵌入式Linux应用开发完全手册》，作者是韦东山。</li>
@@ -268,6 +236,11 @@ OPTION:
         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </section>
             </div>
+    <div id="scrollspy">
+        <div class="col-lg-3 nav nav-stacked hidden-xs hidden-sm" data-spy="affix" data-offset-top="135">
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="Software&nbsp;Roadmap[持续更新]">Software&nbsp;Roadmap[持续更新]</a><ul><li><a class="toc-href" href="#editor" title="Editor">Editor</a><ul><li><a class="toc-href" href="#editor-or-ide" title="Editor or IDE&nbsp;?">Editor or IDE&nbsp;?</a></li><li><a class="toc-href" href="#vim" title="VIM">VIM</a></li><li><a class="toc-href" href="#sublime-text" title="Sublime&nbsp;Text">Sublime&nbsp;Text</a></li><li><a class="toc-href" href="#eclipse" title="Eclipse">Eclipse</a></li></ul></li><li><a class="toc-href" href="#version-control_1" title="Version&nbsp;Control">Version&nbsp;Control</a><ul><li><a class="toc-href" href="#git" title="Git">Git</a></li></ul></li><li><a class="toc-href" href="#programming_1" title="Programming">Programming</a><ul><li><a class="toc-href" href="#c" title="C">C</a></li><li><a class="toc-href" href="#python" title="Python">Python</a><ul><li><a class="toc-href" href="#pyside" title="PySide">PySide</a></li></ul></li><li><a class="toc-href" href="#regular-expression_1" title="Regular&nbsp;Expression">Regular&nbsp;Expression</a></li><li><a class="toc-href" href="#sql" title="SQL">SQL</a></li></ul></li><li><a class="toc-href" href="#linux_1" title="Linux">Linux</a><ul><li><a class="toc-href" href="#linux_2" title="Linux软件安装和配置">Linux软件安装和配置</a></li></ul></li><li><a class="toc-href" href="#_2" title="嵌入式开发">嵌入式开发</a></li></ul></li></ul></div>
+        </div>
+    </div>
         </div>
     </article>
 </section>

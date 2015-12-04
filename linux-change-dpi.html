@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="Carlos Cai" />
         <meta name="keywords" content="Linux" />
-        <meta name="description" content="Linux放大字体的解决方案，我觉得较好的做法不是直接调整字号，而是改变DPI（Dots Per Inch），这可以通过Display Manger（例如sddm）将DPI参数传给Xserver来实现。另外还谈到了SDDM的设置，例如登录时自动打开键盘NumLock。" />
+        <meta name="description" content="Linux放大字体的解决方案，我觉得较好的做法不是直接调整字号，而是改变DPI（Dots Per Inch），这可以通过Display Manger（例如sddm）将DPI参数传给Xserver来实现。另外还谈到了SDDM的设置，例如登录时自动打开键盘NumLock。" />
 
 
     <title>放大字体的解决方案 - CarlosCai.com</title>
@@ -17,6 +17,7 @@
     <link href="http://www.carloscai.com/theme/css/font-awesome.min.css" rel="stylesheet" />
     <link href="http://www.carloscai.com/theme/css/pygments/native.css" rel="stylesheet" />
     
+        <link href="http://www.carloscai.com/theme/css/typogrify.css" rel="stylesheet" />
     <link href="http://www.carloscai.com/theme/css/pelican-twitchy.min.css" rel="stylesheet" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -107,7 +108,7 @@
             <div class="col-lg-9">
                 <header class="page-header">
                     <h1>
-                        <a href="http://www.carloscai.com/Linux-Change-DPI.html"
+                        <a href="http://www.carloscai.com/linux-change-dpi.html"
                            rel="bookmark"
                            title="Permalink to 放大字体的解决方案">
                             放大字体的解决方案
@@ -117,7 +118,7 @@
     <div class="publish-info-block">
         <small>
             <span class="published">
-                <i class="fa fa-calendar padding-small"></i><time datetime="2015-11-01T00:00:00+08:00"> Sun 01 November 2015</time>
+                <i class="fa fa-calendar padding-small"></i><time datetime="2015-11-01T00:00:00+08:00"> 2015-11-01</time>
             </span>
             <span class="category">
                 <i class="fa fa-folder-open padding-small"></i><a href="http://www.carloscai.com/category/software.html">Software</a>
@@ -135,33 +136,31 @@
         <div class="row">
             <div class="col-lg-9">
                 <div class="entry-content">
-                    <h2>前言</h2>
-<p>在我1080p的显示屏上，KDE默认字体大小显示效果是尺寸小、看得费力，而在"System Settings -&gt; Fonts "中调整字体大小作用的范围有限，例如Chromium的bookmarks bar和Sublime Text3的Status Bar不受影响。</p>
-<p>在Windows上字体显示小我的解决方案是在"控制面板 -&gt; 显示"将默认的100%调成125%（DPI从96调成120），如下图
-<img alt="Windows7-Enlarge" src="http://www.carloscai.com/images/Windows7-Enlarge-half.png" /></p>
-<p>据此，我想调整KDE的DPI来放大或缩小文本和其他项目——我的理解是：96DPI意味着用96个像素距离来表示1英寸，字体的字号是根据英寸来规范、而不是根据像素，当DPI调大同样字号的字体看起来更大。</p>
-<h2>调整DPI</h2>
+                    <h2 id="_1">前言</h2>
+<p>在我1080p的显示屏上，KDE默认字体大小显示效果是尺寸小、看得费力，而在&rdquo;System Settings -&gt; Fonts &ldquo;中调整字体大小作用的范围有限，例如Chromium的bookmarks bar和Sublime Text3的Status&nbsp;Bar不受影响。</p>
+<p>在Windows上字体显示小我的解决方案是在&rdquo;控制面板 -&gt; 显示&rdquo;将默认的100%调成125%（DPI从96调成120），如下图<br/>
+<img alt="Windows7-Enlarge" src="http://www.carloscai.com/images/Windows7-Enlarge-half.png"/></p>
+<p>据此，我想调整KDE的DPI来放大或缩小文本和其他项目&mdash;&mdash;我的理解是：96DPI意味着用96个像素距离来表示1英寸，字体的字号是根据英寸来规范、而不是根据像素，当DPI调大同样字号的字体看起来更大。</p>
+<h2 id="dpi">调整DPI</h2>
 <p>我们使用xdpyinfo命令可以看到系统默认是96DPI。</p>
-<div class="highlight"><pre><span class="nv">$ </span>xdpyinfo <span class="p">|</span> grep dots
+<div class="default"><pre><span class="nv">$ </span>xdpyinfo <span class="p">|</span> grep dots
 resolution:    96x96 dots per inch
 </pre></div>
-
-
-<p>我是通过Display Manger（这里是SDDM)将DPI参数传给Xserver来实现DPI设置。</p>
-<p>SDDM（Simple Desktop Display Manager）的配置文件是<code>/etc/sddm.conf</code>，如果在该路径没有找到文件，原因可能是：</p>
+<p>我是通过Display&nbsp;Manger（这里是SDDM)将DPI参数传给Xserver来实现DPI设置。</p>
+<p><span class="caps">SDDM</span>（Simple Desktop Display Manager）的配置文件是<code>/etc/sddm.conf</code>，如果在该路径没有找到文件，原因可能是：</p>
 <blockquote>
-<p>On systems controlled by systemd, everything should work out of the box, since SDDM defaults to using systemd-logind for session management.
-The configuration file will therefore not be created at package installation time.</p>
+<p>On systems controlled by systemd, everything should work out of the box, since <span class="caps">SDDM</span> defaults to using systemd-logind for session management.<br/>
+The configuration file will therefore not be created at package installation&nbsp;time.</p>
 </blockquote>
 <p>我们用以下命令手动生成一份</p>
 <p><code># sddm --example-config &gt; /etc/sddm.conf</code></p>
 <p>在sddm.conf中<code>[XDisplay]</code>下找到<code>ServerArguments=</code>，在行尾加上<code>-dpi 120</code>，重新登录就可以看120DPI的效果。</p>
-<p>在此我附上Sublime Text3在96DPI和120DPI的对比图，不止是字体，连图标都变大：</p>
-<p><img alt="Subl-96DPI" src="http://www.carloscai.com/images/Subl-96DPI.png" /></p>
-<p><img alt="Subl-120DPI" src="http://www.carloscai.com/images/Subl-120DPI.png" /></p>
+<p>在此我附上Sublime&nbsp;Text3在96DPI和120DPI的对比图，不止是字体，连图标都变大：</p>
+<p><img alt="Subl-96DPI" src="http://www.carloscai.com/images/Subl-96DPI.png"/></p>
+<p><img alt="Subl-120DPI" src="http://www.carloscai.com/images/Subl-120DPI.png"/></p>
 <p>其他桌面环境应该也可以通过类似方法调整DPI。</p>
-<h2>SDDM config</h2>
-<h3>打开键盘NumLock</h3>
+<h2 id="sddm-config"><span class="caps">SDDM</span>&nbsp;config</h2>
+<h3 id="numlock">打开键盘NumLock</h3>
 <p>在sddm.conf中<code>[General]</code>改<code>Numlock</code>值为<code>on</code>实现系统启动到登录界面时键盘的NumLock是打开的。</p>
                 </div>
                 <footer class="text-right">
@@ -176,6 +175,11 @@ The configuration file will therefore not be created at package installation tim
         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </section>
             </div>
+    <div id="scrollspy">
+        <div class="col-lg-3 nav nav-stacked hidden-xs hidden-sm" data-spy="affix" data-offset-top="135">
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="放大字体的解决方案">放大字体的解决方案</a><ul><li><a class="toc-href" href="#_1" title="前言">前言</a></li><li><a class="toc-href" href="#dpi" title="调整DPI">调整DPI</a></li><li><a class="toc-href" href="#sddm-config" title="SDDM&nbsp;config">SDDM&nbsp;config</a><ul><li><a class="toc-href" href="#numlock" title="打开键盘NumLock">打开键盘NumLock</a></li></ul></li></ul></li></ul></div>
+        </div>
+    </div>
         </div>
     </article>
 </section>
@@ -226,8 +230,8 @@ The configuration file will therefore not be created at package installation tim
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'carloscai'; // required: replace example with your forum shortname
 
-            var disqus_identifier = 'Linux-Change-DPI';
-        var disqus_url = 'http://www.carloscai.com/Linux-Change-DPI.html';
+            var disqus_identifier = 'linux-change-dpi';
+        var disqus_url = 'http://www.carloscai.com/linux-change-dpi.html';
 
     var disqus_config = function () {
         this.language = "cn";
