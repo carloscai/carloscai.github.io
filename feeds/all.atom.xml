@@ -1,7 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>CarlosCai.com</title><link href="http://www.carloscai.com/" rel="alternate"></link><link href="http://www.carloscai.com/feeds/all.atom.xml" rel="self"></link><id>http://www.carloscai.com/</id><updated>2015-12-03T00:00:00+08:00</updated><entry><title>放大字体的解决方案</title><link href="http://www.carloscai.com/linux-change-dpi.html" rel="alternate"></link><updated>2015-11-15T00:00:00+08:00</updated><author><name>Carlos Cai</name></author><id>tag:www.carloscai.com,2015-11-01:linux-change-dpi.html</id><summary type="html">&lt;h2 id="_1"&gt;前言&lt;/h2&gt;
-&lt;p&gt;在我1080p的显示屏上，KDE默认字体大小显示效果是尺寸小、看得费力，而在&amp;rdquo;System Settings -&amp;gt; Fonts &amp;ldquo;中调整字体大小作用的范围有限，例如Chromium的bookmarks bar和Sublime Text3的Status&amp;nbsp;Bar不受影响。&lt;/p&gt;
-&lt;p&gt;在Windows上字体显示小我的解决方案是在&amp;rdquo;控制面板 -&amp;gt; 显示&amp;rdquo;将默认的100%调成125%（DPI从96调成120），如下图&lt;br/&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>CarlosCai.com</title><link href="http://www.carloscai.com/" rel="alternate"></link><link href="http://www.carloscai.com/feeds/all.atom.xml" rel="self"></link><id>http://www.carloscai.com/</id><updated>2015-12-27T00:00:00+08:00</updated><entry><title>使用国外DNS造成国内网站访问慢的解决方法</title><link href="http://www.carloscai.com/dns-issue-dnsmasq.html" rel="alternate"></link><updated>2015-12-27T00:00:00+08:00</updated><author><name>Carlos Cai</name></author><id>tag:www.carloscai.com,2015-12-25:dns-issue-dnsmasq.html</id><summary type="html">&lt;p&gt;由于众所周知的原因，为了避免DNS污染与投毒，我会更换DNS服务器，例如Google的8.8.8.8、&lt;a href="http://www.alidns.com/"&gt;阿里公共DNS&lt;/a&gt;的223.5.5.5。Google的DNS服务器受到干扰、丢包严重；阿里公共DNS位于墙内，延迟较小。如果是启用境外的DNS服务器，我会遇到两个问题：&lt;/p&gt;
+&lt;p&gt;1.某些网站无法得到可访问的IP，例如&lt;a href="www.acfun.tv"&gt;acfun.tv&lt;/a&gt;，境外的OpenDNS返回的是1.1.1.1，国内DNS返回107.155.28.62。&lt;/p&gt;
+&lt;div class="default"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;dig&lt;/span&gt; &lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;acfun&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tv&lt;/span&gt; &lt;span class="mf"&gt;@208.67.222.222&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="kt"&gt;short&lt;/span&gt;
+&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;acfun&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tv&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;qingcdn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;u887&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;qingcdn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;u887&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;qingcdn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="mf"&gt;1.1.1.1&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;dig&lt;/span&gt; &lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;acfun&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tv&lt;/span&gt; &lt;span class="mf"&gt;@223.5.5.5&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="kt"&gt;short&lt;/span&gt;
+&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;acfun&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tv&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;qingcdn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;u887&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;qingcdn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="mf"&gt;161.202.38.26&lt;/span&gt;
+&lt;span class="mf"&gt;107.155.28.62&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;2.返回的IP，可能不是连接速度较好的CDN节点。例如访问淘宝返回47.88.135.232是新加坡的节点。&lt;/p&gt;
+&lt;div class="default"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;dig&lt;/span&gt; &lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;taobao&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt; &lt;span class="mf"&gt;@208.67.222.222&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="kt"&gt;short&lt;/span&gt;
+&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;taobao&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;danuoyi&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tbcache&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="mf"&gt;47.88.135.232&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;好在我的路由器有提供dnsmasq服务&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;，可以指定某些域名由特定的DNS服务器解析，添加以下的参数即可解决以上问题：&lt;/p&gt;
+&lt;div class="default"&gt;&lt;pre&gt;server=/cn/223.5.5.5
+server=/acfun.tv/223.5.5.5
+server=/tmall.com/223.5.5.5
+server=/taobao.com/223.5.5.5
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;有热心的网友在github上提供了一份列表&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt;，有12314行参数，我曾想导入整个列表，但路由器上的dnsmasq直接罢工不干，可能是因为数目太多、路由器RAM小，我暂时还找不到解决办法。&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr/&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;&lt;a href="http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html"&gt;dnsmasq&lt;/a&gt; - A lightweight DHCP and caching DNS server.&amp;nbsp;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;↩&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:2"&gt;
+&lt;p&gt;&lt;a href="https://github.com/felixonmars/dnsmasq-china-list/blob/master/accelerated-domains.china.conf"&gt;accelerated-domains.china.conf&lt;/a&gt;&amp;nbsp;&lt;a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text"&gt;↩&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</summary></entry><entry><title>放大字体的解决方案</title><link href="http://www.carloscai.com/linux-change-dpi.html" rel="alternate"></link><updated>2015-11-15T00:00:00+08:00</updated><author><name>Carlos Cai</name></author><id>tag:www.carloscai.com,2015-11-01:linux-change-dpi.html</id><summary type="html">&lt;h2 id="_1"&gt;前言&lt;/h2&gt;
+&lt;p&gt;在我1080p的显示屏上，KDE默认字体大小显示效果是尺寸小、看得费力，而在"System Settings -&amp;gt; Fonts "中调整字体大小作用的范围有限，例如Chromium的bookmarks bar和Sublime Text3的Status Bar不受影响。&lt;/p&gt;
+&lt;p&gt;在Windows上字体显示小我的解决方案是在"控制面板 -&amp;gt; 显示"将默认的100%调成125%（DPI从96调成120），如下图&lt;br/&gt;
 &lt;img alt="Windows7-Enlarge" src="http://www.carloscai.com/images/Windows7-Enlarge-half.png"/&gt;&lt;/p&gt;
 &lt;p&gt;据此，我想调整KDE的DPI来放大或缩小文本和其他项目&amp;mdash;&amp;mdash;我的理解是：96DPI意味着用96个像素距离来表示1英寸，字体的字号是根据英寸来规范、而不是根据像素，当DPI调大同样字号的字体看起来更大。&lt;/p&gt;
 &lt;h2 id="dpi"&gt;调整DPI&lt;/h2&gt;
@@ -9,39 +44,39 @@
 &lt;div class="default"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;xdpyinfo &lt;span class="p"&gt;|&lt;/span&gt; grep dots
 resolution:    96x96 dots per inch
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;我是通过Display&amp;nbsp;Manger（这里是SDDM)将DPI参数传给Xserver来实现DPI设置。&lt;/p&gt;
-&lt;p&gt;&lt;span class="caps"&gt;SDDM&lt;/span&gt;（Simple Desktop Display Manager）的配置文件是&lt;code&gt;/etc/sddm.conf&lt;/code&gt;，如果在该路径没有找到文件，原因可能是：&lt;/p&gt;
+&lt;p&gt;我是通过Display Manger（这里是SDDM)将DPI参数传给Xserver来实现DPI设置。&lt;/p&gt;
+&lt;p&gt;SDDM（Simple Desktop Display Manager）的配置文件是&lt;code&gt;/etc/sddm.conf&lt;/code&gt;，如果在该路径没有找到文件，原因可能是：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;On systems controlled by systemd, everything should work out of the box, since &lt;span class="caps"&gt;SDDM&lt;/span&gt; defaults to using systemd-logind for session management.&lt;br/&gt;
-The configuration file will therefore not be created at package installation&amp;nbsp;time.&lt;/p&gt;
+&lt;p&gt;On systems controlled by systemd, everything should work out of the box, since SDDM defaults to using systemd-logind for session management.&lt;br/&gt;
+The configuration file will therefore not be created at package installation time.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;我们用以下命令手动生成一份&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;# sddm --example-config &amp;gt; /etc/sddm.conf&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;在sddm.conf中&lt;code&gt;[XDisplay]&lt;/code&gt;下找到&lt;code&gt;ServerArguments=&lt;/code&gt;，在行尾加上&lt;code&gt;-dpi 120&lt;/code&gt;，重新登录就可以看120DPI的效果。&lt;/p&gt;
-&lt;p&gt;在此我附上Sublime&amp;nbsp;Text3在96DPI和120DPI的对比图，不止是字体，连图标都变大：&lt;/p&gt;
+&lt;p&gt;在此我附上Sublime Text3在96DPI和120DPI的对比图，不止是字体，连图标都变大：&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Subl-96DPI" src="http://www.carloscai.com/images/Subl-96DPI.png"/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Subl-120DPI" src="http://www.carloscai.com/images/Subl-120DPI.png"/&gt;&lt;/p&gt;
 &lt;p&gt;其他桌面环境应该也可以通过类似方法调整DPI。&lt;/p&gt;
-&lt;h2 id="sddm-config"&gt;&lt;span class="caps"&gt;SDDM&lt;/span&gt;&amp;nbsp;config&lt;/h2&gt;
+&lt;h2 id="sddm-config"&gt;SDDM config&lt;/h2&gt;
 &lt;h3 id="numlock"&gt;打开键盘NumLock&lt;/h3&gt;
-&lt;p&gt;在sddm.conf中&lt;code&gt;[General]&lt;/code&gt;改&lt;code&gt;Numlock&lt;/code&gt;值为&lt;code&gt;on&lt;/code&gt;实现系统启动到登录界面时键盘的NumLock是打开的。&lt;/p&gt;</summary><category term="Linux"></category></entry><entry><title>Software Roadmap[持续更新]</title><link href="http://www.carloscai.com/software-roadmap.html" rel="alternate"></link><updated>2015-11-15T00:00:00+08:00</updated><author><name>Carlos Cai</name></author><id>tag:www.carloscai.com,2015-10-01:software-roadmap.html</id><summary type="html">&lt;p&gt;版本历史：&lt;/p&gt;
+&lt;p&gt;在sddm.conf中&lt;code&gt;[General]&lt;/code&gt;改&lt;code&gt;Numlock&lt;/code&gt;值为&lt;code&gt;on&lt;/code&gt;实现系统启动到登录界面时键盘的NumLock是打开的。&lt;/p&gt;</summary><category term="Linux"></category></entry><entry><title>Software Roadmap[持续更新]</title><link href="http://www.carloscai.com/software-roadmap.html" rel="alternate"></link><updated>2015-11-15T00:00:00+08:00</updated><author><name>Carlos Cai</name></author><id>tag:www.carloscai.com,2015-10-01:software-roadmap.html</id><summary type="html">&lt;p&gt;版本历史：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;2014.09.03初稿，含Editor、版本控制、正则表达式。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;我仍独自在摸索软件开发，希望能借它安身立命。&lt;/p&gt;
 &lt;h2 id="editor"&gt;Editor&lt;/h2&gt;
-&lt;h3 id="editor-or-ide"&gt;Editor or &lt;span class="caps"&gt;IDE&lt;/span&gt;&amp;nbsp;?&lt;/h3&gt;
+&lt;h3 id="editor-or-ide"&gt;Editor or IDE ?&lt;/h3&gt;
 &lt;p&gt;编写代码是要选择Editor还是直接在IDE里写？我的看法是：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;如果你是在一个团队里面，最好按前辈的方式来，这样遇到相关问题也有人可以讨论。&lt;/li&gt;
-&lt;li&gt;如果你跟我一样是独自探索软件开发的初学者，我建议从Editor开始入手，因为一开始代码量不大、需要的软件特性也不多&amp;mdash;&amp;mdash;能实现基本的语法高亮(syntax highlighting)、代码自动完成(auto completion)、自动缩进等功能就足够了，而这些功能VIM或Sublime&amp;nbsp;Text搭配插件就可以实现，后续再根据需要选择IDE（如PyCharm或Eclipse）。&lt;/li&gt;
+&lt;li&gt;如果你跟我一样是独自探索软件开发的初学者，我建议从Editor开始入手，因为一开始代码量不大、需要的软件特性也不多&amp;mdash;&amp;mdash;能实现基本的语法高亮(syntax highlighting)、代码自动完成(auto completion)、自动缩进等功能就足够了，而这些功能VIM或Sublime Text搭配插件就可以实现，后续再根据需要选择IDE（如PyCharm或Eclipse）。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="vim"&gt;&lt;span class="caps"&gt;VIM&lt;/span&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;span class="caps"&gt;VIM&lt;/span&gt;（=Vi IMproved）与vi操的作大多兼容，很多Linux发行版会默认安装vi（Ubuntu&amp;nbsp;14.04上vi软链接到VIM），在命令行下使用VIM修改一些配置文件会比使用nano效率高得多。另外VIM的一些操作在man、less命令也可实现同样的效果，例如按键j/k/h/l表示上/下/左/右的移动。&lt;/p&gt;
+&lt;h3 id="vim"&gt;VIM&lt;/h3&gt;
+&lt;p&gt;VIM（=Vi IMproved）与vi操的作大多兼容，很多Linux发行版会默认安装vi（Ubuntu 14.04上vi软链接到VIM），在命令行下使用VIM修改一些配置文件会比使用nano效率高得多。另外VIM的一些操作在man、less命令也可实现同样的效果，例如按键j/k/h/l表示上/下/左/右的移动。&lt;/p&gt;
 &lt;p&gt;我建议的VIM教程：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;VIM自带的vimtutor&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://vimdoc.sourceforge.net/htmldoc/"&gt;&lt;span class="caps"&gt;VIM&lt;/span&gt; DOC英文原版&lt;/a&gt;,&lt;a href="http://vimcdoc.sourceforge.net/"&gt;中文版&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://vimdoc.sourceforge.net/htmldoc/"&gt;VIM DOC英文原版&lt;/a&gt;,&lt;a href="http://vimcdoc.sourceforge.net/"&gt;中文版&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;我常用的VIM插件：&lt;/p&gt;
 &lt;ul&gt;
@@ -49,30 +84,33 @@ The configuration file will therefore not be created at package installation&amp
 &lt;li&gt;&lt;a href="https://github.com/scrooloose/nerdtree"&gt;nerdtree&lt;/a&gt; 和 &lt;a href="https://github.com/Xuyuanp/nerdtree-git-plugin"&gt;nerdtree-git-plugin&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/terryma/vim-multiple-cursors"&gt;vim-multiple-cursors&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Raimondi/delimitMate"&gt;delimitMate&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/bling/vim-airline"&gt;airline&lt;/a&gt;&amp;nbsp;，是powerline的一个衍生品。&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/bling/vim-airline"&gt;airline&lt;/a&gt; ，是powerline的一个衍生品。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="sublime-text"&gt;Sublime&amp;nbsp;Text&lt;/h3&gt;
-&lt;p&gt;我使用Sublime Text多是写Python代码和Markdown文本。&lt;br/&gt;&amp;nbsp;我常用的subl插件：&lt;/p&gt;
+&lt;h3 id="sublime-text"&gt;Sublime Text&lt;/h3&gt;
+&lt;p&gt;我使用Sublime Text多是写Python代码和Markdown文本。&lt;br/&gt;
+我常用的subl插件：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;插件管理器Package&amp;nbsp;Control&lt;/li&gt;
+&lt;li&gt;插件管理器Package Control&lt;/li&gt;
 &lt;li&gt;Anaconda插件&lt;/li&gt;
 &lt;li&gt;MarkdownEditing插件&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="eclipse"&gt;Eclipse&lt;/h3&gt;
 &lt;p&gt;pass&lt;/p&gt;
-&lt;h2 id="version-control_1"&gt;Version&amp;nbsp;Control&lt;/h2&gt;
-&lt;p&gt;版本控制（Version Control,或称为Revision control、Source Control），更多应用在源码管理（&lt;span class="caps"&gt;SCM&lt;/span&gt;，Source Code Management），实现代码改动记录和维护等功能。&lt;br/&gt;
-我第一次正式使用版本控制软件是2012年在职时编写一个产品的固件（Firmware），项目并没有明确要求版本控制，只是我个人为了方便代码管理，选择了使用TortoiseSVN。&lt;br/&gt;&amp;nbsp;当时，我至少在这几个地方切实得到了好处：&lt;/p&gt;
+&lt;h2 id="version-control_1"&gt;Version Control&lt;/h2&gt;
+&lt;p&gt;版本控制（Version Control,或称为Revision control、Source Control），更多应用在源码管理（SCM，Source Code Management），实现代码改动记录和维护等功能。&lt;br/&gt;
+我第一次正式使用版本控制软件是2012年在职时编写一个产品的固件（Firmware），项目并没有明确要求版本控制，只是我个人为了方便代码管理，选择了使用TortoiseSVN。&lt;br/&gt;
+当时，我至少在这几个地方切实得到了好处：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;当前文件与库最新版的相比有差异时，直接在文件图标上提示，相当直观；&lt;/li&gt;
 &lt;li&gt;把代码提交到库时查看跟上一版代码的差异，避免不经意的代码改动；&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id="git"&gt;Git&lt;/h3&gt;
-&lt;p&gt;现在认识到github、Redhat的OpenShift，我开始使用Git。&lt;br/&gt;&amp;nbsp;我建议的Git教程：&lt;/p&gt;
+&lt;p&gt;现在认识到github、Redhat的OpenShift，我开始使用Git。&lt;br/&gt;
+我建议的Git教程：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;a href="http://www.liaoxuefeng.com/"&gt;廖雪峰&amp;nbsp;Git教程&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://git-scm.com/book"&gt;《Pro&amp;nbsp;Git》&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://git-scm.com/docs"&gt;Git&amp;nbsp;Doc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.liaoxuefeng.com/"&gt;廖雪峰 Git教程&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://git-scm.com/book"&gt;《Pro Git》&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://git-scm.com/docs"&gt;Git Doc&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id="programming_1"&gt;Programming&lt;/h2&gt;
 &lt;p&gt;Programming（编程）不单是指编程语言，还涵盖代码背后的思维（算法、设计模式等）。&lt;/p&gt;
@@ -85,8 +123,9 @@ The configuration file will therefore not be created at package installation&amp
 &lt;p&gt;pass&lt;/p&gt;
 &lt;h4 id="pyside"&gt;PySide&lt;/h4&gt;
 &lt;p&gt;pass&lt;/p&gt;
-&lt;h3 id="regular-expression_1"&gt;Regular&amp;nbsp;Expression&lt;/h3&gt;
-&lt;p&gt;正则表达式(=Regular Expression，简称regex或regexp），需要注意的是在支持正则表达式的编程语言和工具中存在语法差异，基本上有三大流派PCRE（Perl Compatible Regular Expression）、&lt;span class="caps"&gt;BRE&lt;/span&gt;（Basic Regular Expression）、&lt;span class="caps"&gt;ERE&lt;/span&gt;（Extended Regular Expression），其中BRE和ERE是IEEE &lt;span class="caps"&gt;POSIX&lt;/span&gt; 标准定义的。&lt;br/&gt;&amp;nbsp;以grep为例，它可以支持三种流派。&lt;/p&gt;
+&lt;h3 id="regular-expression_1"&gt;Regular Expression&lt;/h3&gt;
+&lt;p&gt;正则表达式(=Regular Expression，简称regex或regexp），需要注意的是在支持正则表达式的编程语言和工具中存在语法差异，基本上有三大流派PCRE（Perl Compatible Regular Expression）、BRE（Basic Regular Expression）、ERE（Extended Regular Expression），其中BRE和ERE是IEEE POSIX 标准定义的。&lt;br/&gt;
+以grep为例，它可以支持三种流派。&lt;/p&gt;
 &lt;div class="default"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;grep --help
 Usage: grep &lt;span class="o"&gt;[&lt;/span&gt;OPTION&lt;span class="o"&gt;]&lt;/span&gt;... PATTERN &lt;span class="o"&gt;[&lt;/span&gt;FILE&lt;span class="o"&gt;]&lt;/span&gt;...
 Search &lt;span class="k"&gt;for&lt;/span&gt; PATTERN in each FILE or standard input.
@@ -96,10 +135,10 @@ OPTION:
 -P,--perl-regexp        PATTERN is a Perl regular expression
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;在编程语言或工具中使用正则表达式，最好浏览下对应的手册。&lt;/p&gt;
-&lt;h3 id="sql"&gt;&lt;span class="caps"&gt;SQL&lt;/span&gt;&lt;/h3&gt;
+&lt;h3 id="sql"&gt;SQL&lt;/h3&gt;
 &lt;p&gt;pass&lt;/p&gt;
 &lt;h2 id="linux_1"&gt;Linux&lt;/h2&gt;
-&lt;p&gt;严格来讲Linux是指一种操作系统内核，而我们通常提到的Linux更多的是指Linux发行版，例如Debian、Ubuntu、Fedora、Arch、Gentoo等。就我这种使用者看来，不同Linux发行版的差异主要体现在包管理器&amp;mdash;&amp;mdash;在命令行下软件的安装和卸载使用何种命令，我们在不同发行版上是可以选用同样的桌面环境（例如GNOME、&lt;span class="caps"&gt;KDE&lt;/span&gt;、Xfce等）或应用程序(&lt;span class="caps"&gt;VIM&lt;/span&gt;、Firefox等)，所以初学者不用纠结于使用何种Linux发行版。&lt;/p&gt;
+&lt;p&gt;严格来讲Linux是指一种操作系统内核，而我们通常提到的Linux更多的是指Linux发行版，例如Debian、Ubuntu、Fedora、Arch、Gentoo等。就我这种使用者看来，不同Linux发行版的差异主要体现在包管理器&amp;mdash;&amp;mdash;在命令行下软件的安装和卸载使用何种命令，我们在不同发行版上是可以选用同样的桌面环境（例如MATE、GNOME、KDE、Xfce等）或应用程序(VIM、Firefox等)，所以初学者不用纠结于使用何种Linux发行版。&lt;/p&gt;
 &lt;p&gt;我建议的教程：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://linux.vbird.org/"&gt;鸟哥的Linux私房菜&lt;/a&gt;,它是有印刷成书、分成基础学习篇和服务器架设篇两本。&lt;/li&gt;
@@ -111,10 +150,11 @@ OPTION:
 &lt;ul&gt;
 &lt;li&gt;《嵌入式Linux应用开发完全手册》，作者是韦东山。&lt;/li&gt;
 &lt;/ul&gt;</summary><category term="roadmap"></category></entry><entry><title>统一换行符</title><link href="http://www.carloscai.com/unify-line-ending.html" rel="alternate"></link><updated>2015-12-03T00:00:00+08:00</updated><author><name>Carlos Cai</name></author><id>tag:www.carloscai.com,2014-09-03:unify-line-ending.html</id><summary type="html">&lt;h2 id="_1"&gt;换行符的编码&lt;/h2&gt;
-&lt;p&gt;换行符的前世今生可以参考&lt;a href="http://www.jianshu.com/p/c5bd0fa864ff"&gt;&amp;ldquo;回车与换行的由来&amp;rdquo;&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;换行(newline)，也被称为line ending或line break，是一个加在一行文字最后位置的特殊字符，在其后的字符将出现在下一行。&lt;br/&gt;&amp;nbsp;我们的问题在于不同操作系统上换行符的默认编码不同,这里列出常见的几个桌面操作系统：&lt;/p&gt;
+&lt;p&gt;换行符的前世今生可以参考&lt;a href="http://www.jianshu.com/p/c5bd0fa864ff"&gt;"回车与换行的由来"&lt;/a&gt;。&lt;br/&gt;
+换行(newline)，也被称为line ending或line break，是一个加在一行文字最后位置的特殊字符，在其后的字符将出现在下一行。&lt;br/&gt;
+我们的问题在于不同操作系统上换行符的默认编码不同,这里列出常见的几个桌面操作系统：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Unix和类Unix系统（Linux，Mac &lt;span class="caps"&gt;OS&lt;/span&gt; X，FreeBSD等）用&lt;code&gt;\n&lt;/code&gt;表示换行符；&lt;/li&gt;
+&lt;li&gt;Unix和类Unix系统（Linux，Mac OS X，FreeBSD等）用&lt;code&gt;\n&lt;/code&gt;表示换行符；&lt;/li&gt;
 &lt;li&gt;DOS和Microsoft Windows用&lt;code&gt;\r\n&lt;/code&gt;表示换行符。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;table&gt;
@@ -128,17 +168,17 @@ OPTION:
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;\n&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;换行，&lt;span class="caps"&gt;LF&lt;/span&gt;(Line Feed)&lt;/td&gt;
+&lt;td&gt;换行，LF(Line Feed)&lt;/td&gt;
 &lt;td&gt;0x0A=10&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;\r&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;回车，&lt;span class="caps"&gt;CR&lt;/span&gt;(Carriage Return)&lt;/td&gt;
+&lt;td&gt;回车，CR(Carriage Return)&lt;/td&gt;
 &lt;td&gt;0x0D=13&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;现在的文本编辑器能正确识别和编辑这两种换行符的文本文档，例如Vim和Sublime&amp;nbsp;Text等，Windows的记事本除外。&lt;/p&gt;
+&lt;p&gt;现在的文本编辑器能正确识别和编辑这两种换行符的文本文档，例如Vim和Sublime Text等，Windows的记事本除外。&lt;/p&gt;
 &lt;h2 id="hashbang"&gt;hashbang&lt;/h2&gt;
 &lt;p&gt;以&lt;code&gt;#!&lt;/code&gt;符号开头、放在脚本文件首行的语句被称为hashbang或&lt;a href="http://en.wikipedia.org/wiki/hashbang"&gt;shebang&lt;/a&gt;，作用是自动选择对应的解释器，这仅当文件作为可执行脚本直接运行时有效。&lt;br/&gt;
 需要执行的Python脚本第一行通常是&lt;br/&gt;
@@ -161,13 +201,13 @@ The python version is 2.7.6 .
 The python version is 3.4.0 .
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;需要注意的是，在某些平台上（例如Ubuntu）hashbang行必须以&lt;code&gt;\n&lt;/code&gt;这种Unix换行符结束，不能以&lt;code&gt;\r\n&lt;/code&gt;为行的结束。否则文件作为可执行脚本运行时，会得到这样的结果&lt;code&gt;: No such file or directory&lt;/code&gt;，而使用命令&lt;code&gt;python scriptName&lt;/code&gt;却又能正常运行脚本。&lt;/p&gt;
-&lt;p&gt;所以我建议在代码中统一使用Unix-style line&amp;nbsp;ending。&lt;/p&gt;
+&lt;p&gt;所以我建议在代码中统一使用Unix-style line ending。&lt;/p&gt;
 &lt;h2 id="_2"&gt;相关设定&lt;/h2&gt;
 &lt;h3 id="git"&gt;关闭git换行符的自动转换&lt;/h3&gt;
 &lt;div class="default"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git config --global core.autocrlf &lt;span class="nb"&gt;false&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id="sublime-text"&gt;Sublime&amp;nbsp;Text换行符设定&lt;/h3&gt;
-&lt;p&gt;Sublime&amp;nbsp;Text菜单Preferences-&amp;gt;Settings-User，加入以下两行：&lt;/p&gt;
+&lt;h3 id="sublime-text"&gt;Sublime Text换行符设定&lt;/h3&gt;
+&lt;p&gt;Sublime Text菜单Preferences-&amp;gt;Settings-User，加入以下两行：&lt;/p&gt;
 &lt;div class="default"&gt;&lt;pre&gt;"default_line_ending": "unix",
 "show_line_endings": true,
 &lt;/pre&gt;&lt;/div&gt;

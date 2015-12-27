@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="Carlos Cai" />
-        <meta name="description" content="脚本文件的hashbang要以’\n’这种Unix换行符结束，否则脚本以可执行文件直接运行时会出错。现在Windows平台的编辑器都能处理好不同类型换行符的文件，所以我建议统一所有文本文件（源代码）的换行符编码为’\n’。" />
+        <meta name="description" content="脚本文件的hashbang要以&#39;\n&#39;这种Unix换行符结束，否则脚本以可执行文件直接运行时会出错。现在Windows平台的编辑器都能处理好不同类型换行符的文件，所以我建议统一所有文本文件（源代码）的换行符编码为&#39;\n&#39;。" />
 
 
     <title>统一换行符 - CarlosCai.com</title>
@@ -16,7 +16,6 @@
     <link href="http://www.carloscai.com/theme/css/font-awesome.min.css" rel="stylesheet" />
     <link href="http://www.carloscai.com/theme/css/pygments/native.css" rel="stylesheet" />
     
-        <link href="http://www.carloscai.com/theme/css/typogrify.css" rel="stylesheet" />
     <link href="http://www.carloscai.com/theme/css/pelican-twitchy.min.css" rel="stylesheet" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -83,7 +82,7 @@
                         <a href="http://www.carloscai.com/category/software.html">
                             <i class="fa fa-folder-open padding-small"></i>
                             Software
-                            <span class="badge pull-right categorybadge">3</span>
+                            <span class="badge pull-right categorybadge">4</span>
                         </a>
                     </li>
                 </ul></li>
@@ -133,10 +132,11 @@
             <div class="col-lg-9">
                 <div class="entry-content">
                     <h2 id="_1">换行符的编码</h2>
-<p>换行符的前世今生可以参考<a href="http://www.jianshu.com/p/c5bd0fa864ff">&ldquo;回车与换行的由来&rdquo;</a>。</p>
-<p>换行(newline)，也被称为line ending或line break，是一个加在一行文字最后位置的特殊字符，在其后的字符将出现在下一行。<br/>&nbsp;我们的问题在于不同操作系统上换行符的默认编码不同,这里列出常见的几个桌面操作系统：</p>
+<p>换行符的前世今生可以参考<a href="http://www.jianshu.com/p/c5bd0fa864ff">"回车与换行的由来"</a>。<br/>
+换行(newline)，也被称为line ending或line break，是一个加在一行文字最后位置的特殊字符，在其后的字符将出现在下一行。<br/>
+我们的问题在于不同操作系统上换行符的默认编码不同,这里列出常见的几个桌面操作系统：</p>
 <ul>
-<li>Unix和类Unix系统（Linux，Mac <span class="caps">OS</span> X，FreeBSD等）用<code>\n</code>表示换行符；</li>
+<li>Unix和类Unix系统（Linux，Mac OS X，FreeBSD等）用<code>\n</code>表示换行符；</li>
 <li>DOS和Microsoft Windows用<code>\r\n</code>表示换行符。</li>
 </ul>
 <table>
@@ -150,17 +150,17 @@
 <tbody>
 <tr>
 <td><code>\n</code></td>
-<td>换行，<span class="caps">LF</span>(Line Feed)</td>
+<td>换行，LF(Line Feed)</td>
 <td>0x0A=10</td>
 </tr>
 <tr>
 <td><code>\r</code></td>
-<td>回车，<span class="caps">CR</span>(Carriage Return)</td>
+<td>回车，CR(Carriage Return)</td>
 <td>0x0D=13</td>
 </tr>
 </tbody>
 </table>
-<p>现在的文本编辑器能正确识别和编辑这两种换行符的文本文档，例如Vim和Sublime&nbsp;Text等，Windows的记事本除外。</p>
+<p>现在的文本编辑器能正确识别和编辑这两种换行符的文本文档，例如Vim和Sublime Text等，Windows的记事本除外。</p>
 <h2 id="hashbang">hashbang</h2>
 <p>以<code>#!</code>符号开头、放在脚本文件首行的语句被称为hashbang或<a href="http://en.wikipedia.org/wiki/hashbang">shebang</a>，作用是自动选择对应的解释器，这仅当文件作为可执行脚本直接运行时有效。<br/>
 需要执行的Python脚本第一行通常是<br/>
@@ -183,13 +183,13 @@ The python version is 2.7.6 .
 The python version is 3.4.0 .
 </pre></div>
 <p>需要注意的是，在某些平台上（例如Ubuntu）hashbang行必须以<code>\n</code>这种Unix换行符结束，不能以<code>\r\n</code>为行的结束。否则文件作为可执行脚本运行时，会得到这样的结果<code>: No such file or directory</code>，而使用命令<code>python scriptName</code>却又能正常运行脚本。</p>
-<p>所以我建议在代码中统一使用Unix-style line&nbsp;ending。</p>
+<p>所以我建议在代码中统一使用Unix-style line ending。</p>
 <h2 id="_2">相关设定</h2>
 <h3 id="git">关闭git换行符的自动转换</h3>
 <div class="default"><pre><span class="nv">$ </span>git config --global core.autocrlf <span class="nb">false</span>
 </pre></div>
-<h3 id="sublime-text">Sublime&nbsp;Text换行符设定</h3>
-<p>Sublime&nbsp;Text菜单Preferences-&gt;Settings-User，加入以下两行：</p>
+<h3 id="sublime-text">Sublime Text换行符设定</h3>
+<p>Sublime Text菜单Preferences-&gt;Settings-User，加入以下两行：</p>
 <div class="default"><pre>"default_line_ending": "unix",
 "show_line_endings": true,
 </pre></div>
@@ -211,7 +211,7 @@ The python version is 3.4.0 .
             </div>
     <div id="scrollspy">
         <div class="col-lg-3 nav nav-stacked hidden-xs hidden-sm" data-spy="affix" data-offset-top="135">
-            <div id="toc"><ul><li><a class="toc-href" href="#" title="统一换行符">统一换行符</a><ul><li><a class="toc-href" href="#_1" title="换行符的编码">换行符的编码</a></li><li><a class="toc-href" href="#hashbang" title="hashbang">hashbang</a></li><li><a class="toc-href" href="#_2" title="相关设定">相关设定</a><ul><li><a class="toc-href" href="#git" title="关闭git换行符的自动转换">关闭git换行符的自动转换</a></li><li><a class="toc-href" href="#sublime-text" title="Sublime&nbsp;Text换行符设定">Sublime&nbsp;Text换行符设定</a></li><li><a class="toc-href" href="#vim" title="VIM换行符设定">VIM换行符设定</a></li></ul></li></ul></li></ul></div>
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="统一换行符">统一换行符</a><ul><li><a class="toc-href" href="#_1" title="换行符的编码">换行符的编码</a></li><li><a class="toc-href" href="#hashbang" title="hashbang">hashbang</a></li><li><a class="toc-href" href="#_2" title="相关设定">相关设定</a><ul><li><a class="toc-href" href="#git" title="关闭git换行符的自动转换">关闭git换行符的自动转换</a></li><li><a class="toc-href" href="#sublime-text" title="Sublime Text换行符设定">Sublime Text换行符设定</a></li><li><a class="toc-href" href="#vim" title="VIM换行符设定">VIM换行符设定</a></li></ul></li></ul></li></ul></div>
         </div>
     </div>
         </div>
