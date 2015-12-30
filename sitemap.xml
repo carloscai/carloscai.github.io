@@ -5,29 +5,36 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://www.carloscai.com/</loc>
-<lastmod>2015-12-27T16:23:15-00:00</lastmod>
+<lastmod>2015-12-30T22:36:11-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://www.carloscai.com/archives.html</loc>
-<lastmod>2015-12-27T16:23:15-00:00</lastmod>
+<lastmod>2015-12-30T22:36:11-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://www.carloscai.com/tags.html</loc>
-<lastmod>2015-12-27T16:23:15-00:00</lastmod>
+<lastmod>2015-12-30T22:36:11-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://www.carloscai.com/categories.html</loc>
-<lastmod>2015-12-27T16:23:15-00:00</lastmod>
+<lastmod>2015-12-30T22:36:11-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://www.carloscai.com/qtgui-systemtray-statusnotifier.html</loc>
+<lastmod>2015-12-30T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -61,14 +68,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://www.carloscai.com/category/software.html</loc>
-<lastmod>2015-12-27T00:00:00+08:06</lastmod>
+<lastmod>2015-12-30T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.carloscai.com/tag/roadmap.html</loc>
-<lastmod>2015-11-15T00:00:00+08:06</lastmod>
+<loc>http://www.carloscai.com/tag/pyqt.html</loc>
+<lastmod>2015-12-30T00:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://www.carloscai.com/tag/pyside.html</loc>
+<lastmod>2015-12-30T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -81,8 +95,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://www.carloscai.com/tag/roadmap.html</loc>
+<lastmod>2015-11-15T00:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://www.carloscai.com/author/carlos-cai.html</loc>
-<lastmod>2015-12-27T00:00:00+08:06</lastmod>
+<lastmod>2015-12-30T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

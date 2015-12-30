@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="Carlos Cai" />
-        <meta name="description" content="dnsmasq服务配合国外DNS服务器使用。" />
+        <meta name="description" content="更换DNS服务器是科学上网的第一步，而使用国外DNS服务器可能会遇到几个问题，我这里用dnsmasq服务配合使用。" />
 
 
     <title>使用国外DNS造成国内网站访问慢的解决方法 - CarlosCai.com</title>
@@ -82,7 +82,7 @@
                         <a href="http://www.carloscai.com/category/software.html">
                             <i class="fa fa-folder-open padding-small"></i>
                             Software
-                            <span class="badge pull-right categorybadge">4</span>
+                            <span class="badge pull-right categorybadge">5</span>
                         </a>
                     </li>
                 </ul></li>
@@ -132,7 +132,7 @@
             <div class="col-lg-9">
                 <div class="entry-content">
                     <p>由于众所周知的原因，为了避免DNS污染与投毒，我会更换DNS服务器，例如Google的8.8.8.8、<a href="http://www.alidns.com/">阿里公共DNS</a>的223.5.5.5。Google的DNS服务器受到干扰、丢包严重；阿里公共DNS位于墙内，延迟较小。如果是启用境外的DNS服务器，我会遇到两个问题：</p>
-<p>1.某些网站无法得到可访问的IP，例如<a href="www.acfun.tv">acfun.tv</a>，境外的OpenDNS返回的是1.1.1.1，国内DNS返回107.155.28.62。</p>
+<p>1.某些网站无法得到可访问的IP，例如<a href="http://www.acfun.tv">acfun.tv</a>，境外的OpenDNS返回的是1.1.1.1，国内DNS返回107.155.28.62。</p>
 <div class="default"><pre><span class="err">$</span> <span class="n">dig</span> <span class="n">www</span><span class="p">.</span><span class="n">acfun</span><span class="p">.</span><span class="n">tv</span> <span class="mf">@208.67.222.222</span> <span class="o">+</span><span class="kt">short</span>
 <span class="n">www</span><span class="p">.</span><span class="n">acfun</span><span class="p">.</span><span class="n">tv</span><span class="p">.</span><span class="n">qingcdn</span><span class="p">.</span><span class="n">com</span><span class="p">.</span>
 <span class="n">u887</span><span class="p">.</span><span class="n">v</span><span class="p">.</span><span class="n">qingcdn</span><span class="p">.</span><span class="n">com</span><span class="p">.</span>
@@ -164,6 +164,9 @@ server=/taobao.com/223.5.5.5
 </li>
 <li id="fn:2">
 <p><a href="https://github.com/felixonmars/dnsmasq-china-list/blob/master/accelerated-domains.china.conf">accelerated-domains.china.conf</a>&nbsp;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+<li id="fn:3">
+<p>在ArchLinux下命令dig位于<code>bind-tools</code>包内，我们使用命令nslookup也可以达到一样的效果。&nbsp;<a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text">↩</a></p>
 </li>
 </ol>
 </div>
