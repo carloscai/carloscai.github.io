@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="Carlos Cai" />
-        <meta name="keywords" content="roadmap" />
-        <meta name="description" content="我的软件开发探索之路" />
+        <meta name="keywords" content="Linux" />
+        <meta name="description" content="Linux放大字体的解决方案，我觉得较好的做法不是直接调整字号，而是改变DPI（Dots Per Inch），这可以通过Display Manger（例如sddm）将DPI参数传给Xserver来实现。另外还谈到了SDDM的设置，例如登录时自动打开键盘NumLock。" />
 
 
-    <title>Software Roadmap[持续更新] - CarlosCai.com</title>
+    <title>放大字体的解决方案 - CarlosCai.com</title>
 
         <link rel="stylesheet" href="http://www.carloscai.com/theme/css/bootstrap.min.css" type="text/css" />
 
@@ -107,24 +107,24 @@
             <div class="col-lg-9">
                 <header class="page-header">
                     <h1>
-                        <a href="http://www.carloscai.com/software-roadmap.html"
+                        <a href="http://www.carloscai.com/Linux-Change-DPI.html"
                            rel="bookmark"
-                           title="Permalink to Software Roadmap[持续更新]">
-                            Software Roadmap[持续更新]
+                           title="Permalink to 放大字体的解决方案">
+                            放大字体的解决方案
                         </a>
                         <small>
 <div class="post-info">
     <div class="publish-info-block">
         <small>
             <span class="published">
-                <i class="fa fa-calendar padding-small"></i><time datetime="2015-10-01T00:00:00+08:00"> 2015-10-01</time>
+                <i class="fa fa-calendar padding-small"></i><time datetime="2015-11-01T00:00:00+08:00"> 2015-11-01</time>
             </span>
             <span class="category">
                 <i class="fa fa-folder-open padding-small"></i><a href="http://www.carloscai.com/category/software.html">Software</a>
             </span>
             <span class="tags">
                 <i class="fa fa-tags padding-small"></i>
-                <a href="http://www.carloscai.com/tag/roadmap.html">roadmap</a>            </span>
+                <a href="http://www.carloscai.com/tag/linux.html">Linux</a>            </span>
         </small>
     </div>
 </div><!-- /.post-info -->                        </small>
@@ -135,97 +135,32 @@
         <div class="row">
             <div class="col-lg-9">
                 <div class="entry-content">
-                    <p>版本历史：</p>
-<ul>
-<li>2014.09.03初稿，含Editor、版本控制、正则表达式。</li>
-</ul>
-<p>我仍独自在摸索软件开发，希望能借它安身立命。</p>
-<h2 id="editor">Editor</h2>
-<h3 id="editor-or-ide">Editor or IDE ?</h3>
-<p>编写代码是要选择Editor还是直接在IDE里写？我的看法是：</p>
-<ul>
-<li>如果你是在一个团队里面，最好按前辈的方式来，这样遇到相关问题也有人可以讨论。</li>
-<li>如果你跟我一样是独自探索软件开发的初学者，我建议从Editor开始入手，因为一开始代码量不大、需要的软件特性也不多&mdash;&mdash;能实现基本的语法高亮(syntax highlighting)、代码自动完成(auto completion)、自动缩进等功能就足够了，而这些功能VIM或Sublime Text搭配插件就可以实现，后续再根据需要选择IDE（如PyCharm或Eclipse）。</li>
-</ul>
-<h3 id="vim">VIM</h3>
-<p>VIM（=Vi IMproved）与vi操的作大多兼容，很多Linux发行版会默认安装vi（Ubuntu 14.04上vi软链接到VIM），在命令行下使用VIM修改一些配置文件会比使用nano效率高得多。另外VIM的一些操作在man、less命令也可实现同样的效果，例如按键j/k/h/l表示上/下/左/右的移动。</p>
-<p>我建议的VIM教程：</p>
-<ul>
-<li>VIM自带的vimtutor</li>
-<li><a href="http://vimdoc.sourceforge.net/htmldoc/">VIM DOC英文原版</a>,<a href="http://vimcdoc.sourceforge.net/">中文版</a></li>
-</ul>
-<p>我常用的VIM插件：</p>
-<ul>
-<li><a href="https://github.com/VundleVim/Vundle.vim">插件管理器Vundle</a></li>
-<li><a href="https://github.com/scrooloose/nerdtree">nerdtree</a> 和 <a href="https://github.com/Xuyuanp/nerdtree-git-plugin">nerdtree-git-plugin</a></li>
-<li><a href="https://github.com/terryma/vim-multiple-cursors">vim-multiple-cursors</a></li>
-<li><a href="https://github.com/Raimondi/delimitMate">delimitMate</a></li>
-<li><a href="https://github.com/bling/vim-airline">airline</a> ，是powerline的一个衍生品。</li>
-</ul>
-<h3 id="sublime-text">Sublime Text</h3>
-<p>我使用Sublime Text多是写Python代码和Markdown文本。<br/>
-我常用的subl插件：</p>
-<ul>
-<li>插件管理器Package Control</li>
-<li>Anaconda插件</li>
-<li>MarkdownEditing插件</li>
-</ul>
-<h3 id="kdevelop">KDevelop</h3>
-<p>C程序我会使用VIM，但C++程序我还是选择KDevelop，因为我用来配合VIM生成tags的GNU Global对C++支持不够好，例如对没有后缀的iostream头文件是无法生成tag的。</p>
-<h2 id="version-control_1">Version Control</h2>
-<p>版本控制（Version Control,或称为Revision control、Source Control），更多应用在源码管理（SCM，Source Code Management），实现代码改动记录和维护等功能。<br/>
-我第一次正式使用版本控制软件是2012年在职时编写一个产品的固件（Firmware），项目并没有明确要求版本控制，只是我个人为了方便代码管理，选择了使用TortoiseSVN。<br/>
-当时，我至少在这几个地方切实得到了好处：</p>
-<ol>
-<li>当前文件与库最新版的相比有差异时，直接在文件图标上提示，相当直观；</li>
-<li>把代码提交到库时查看跟上一版代码的差异，避免不经意的代码改动；</li>
-</ol>
-<h3 id="git">Git</h3>
-<p>现在认识到github、Redhat的OpenShift，我开始使用Git。<br/>
-我建议的Git教程：</p>
-<ol>
-<li><a href="http://www.liaoxuefeng.com/">廖雪峰 Git教程</a></li>
-<li><a href="http://git-scm.com/book">《Pro Git》</a></li>
-<li><a href="http://git-scm.com/docs">Git Doc</a></li>
-</ol>
-<h2 id="programming_1">Programming</h2>
-<p>Programming（编程）不单是指编程语言，还涵盖代码背后的思维（算法、设计模式等）。</p>
-<h3 id="c">C</h3>
-<p>我建议的C教程：</p>
-<ul>
-<li>《C语言程序设计现代方法》</li>
-</ul>
-<h3 id="python">Python</h3>
-<p>pass</p>
-<h4 id="pyside">PySide</h4>
-<p>pass</p>
-<h3 id="regular-expression_1">Regular Expression</h3>
-<p>正则表达式(=Regular Expression，简称regex或regexp），需要注意的是在支持正则表达式的编程语言和工具中存在语法差异，基本上有三大流派PCRE（Perl Compatible Regular Expression）、BRE（Basic Regular Expression）、ERE（Extended Regular Expression），其中BRE和ERE是IEEE POSIX 标准定义的。<br/>
-以grep为例，它可以支持三种流派。</p>
-<div class="default"><pre><span></span>$ grep --help
-Usage: grep <span class="o">[</span>OPTION<span class="o">]</span>... PATTERN <span class="o">[</span>FILE<span class="o">]</span>...
-Search <span class="k">for</span> PATTERN in each FILE or standard input.
-PATTERN is, by default, a basic regular expression<span class="o">(</span>BRE<span class="o">)</span>.
-OPTION:
--E,--extended-regexp        PATTERN is an extended regular expression<span class="o">(</span>ERE<span class="o">)</span>
--P,--perl-regexp        PATTERN is a Perl regular expression
+                    <h2 id="_1">前言</h2>
+<p>在我1080p的显示屏上，KDE默认字体大小显示效果是尺寸小、看得费力，而在"System Settings -&gt; Fonts "中调整字体大小作用的范围有限，例如Chromium的bookmarks bar和Sublime Text3的Status Bar不受影响。</p>
+<p>在Windows上字体显示小我的解决方案是在"控制面板 -&gt; 显示"将默认的100%调成125%（DPI从96调成120），如下图<br/>
+<img alt="Windows7-Enlarge" src="http://www.carloscai.com/images/Windows7-Enlarge-half.png"/></p>
+<p>据此，我想调整KDE的DPI来放大或缩小文本和其他项目&mdash;&mdash;我的理解是：96DPI意味着用96个像素距离来表示1英寸，字体的字号是根据英寸来规范、而不是根据像素，当DPI调大同样字号的字体看起来更大。</p>
+<h2 id="dpi">调整DPI</h2>
+<p>我们使用xdpyinfo命令可以看到系统默认是96DPI。</p>
+<div class="default"><pre><span></span>$ xdpyinfo <span class="p">|</span> grep dots
+resolution:    96x96 dots per inch
 </pre></div>
-<p>在编程语言或工具中使用正则表达式，最好浏览下对应的手册。</p>
-<h3 id="sql">SQL</h3>
-<p>pass</p>
-<h2 id="linux_1">Linux</h2>
-<p>严格来讲Linux是指一种操作系统内核，而我们通常提到的Linux更多的是指Linux发行版，例如Debian、Ubuntu、Fedora、Arch、Gentoo等。就我这种使用者看来，不同Linux发行版的差异主要体现在包管理器&mdash;&mdash;在命令行下软件的安装和卸载使用何种命令，我们在不同发行版上是可以选用同样的桌面环境（例如MATE、GNOME、KDE、Xfce等）或应用程序(VIM、Firefox等)，所以初学者不用纠结于使用何种Linux发行版。</p>
-<p>我建议的教程：</p>
-<ul>
-<li><a href="http://linux.vbird.org/">鸟哥的Linux私房菜</a>,它是有印刷成书、分成基础学习篇和服务器架设篇两本。</li>
-</ul>
-<h3 id="linux_2">Linux软件安装和配置</h3>
-<p>Linux软件安装和配置，我通常是查看Linux发行版的wiki，例如<a href="https://wiki.archlinux.org/">ArchWiki</a>，或者用Google搜索。</p>
-<h2 id="_2">嵌入式开发</h2>
-<p>我建议的教程：</p>
-<ul>
-<li>《嵌入式Linux应用开发完全手册》，作者是韦东山。</li>
-</ul>
+<p>我是通过Display Manger（这里是SDDM)将DPI参数传给Xserver来实现DPI设置。</p>
+<p>SDDM（Simple Desktop Display Manager）的配置文件是<code>/etc/sddm.conf</code>，如果在该路径没有找到文件，原因可能是：</p>
+<blockquote>
+<p>On systems controlled by systemd, everything should work out of the box, since SDDM defaults to using systemd-logind for session management.<br/>
+The configuration file will therefore not be created at package installation time.</p>
+</blockquote>
+<p>我们用以下命令手动生成一份</p>
+<p><code># sddm --example-config &gt; /etc/sddm.conf</code></p>
+<p>在sddm.conf中<code>[XDisplay]</code>下找到<code>ServerArguments=</code>，在行尾加上<code>-dpi 120</code>，重新登录就可以看120DPI的效果。</p>
+<p>在此我附上Sublime Text3在96DPI和120DPI的对比图，不止是字体，连图标都变大：</p>
+<p><img alt="Subl-96DPI" src="http://www.carloscai.com/images/Subl-96DPI.png"/></p>
+<p><img alt="Subl-120DPI" src="http://www.carloscai.com/images/Subl-120DPI.png"/></p>
+<p>其他桌面环境应该也可以通过类似方法调整DPI。</p>
+<h2 id="sddm-config">SDDM config</h2>
+<h3 id="numlock">打开键盘NumLock</h3>
+<p>在sddm.conf中<code>[General]</code>改<code>Numlock</code>值为<code>on</code>实现系统启动到登录界面时键盘的NumLock是打开的。</p>
                 </div>
                 <footer class="text-right">
                     <p>- Carlos Cai</p>
@@ -241,7 +176,7 @@ OPTION:
             </div>
     <div id="scrollspy">
         <div class="col-lg-3 nav nav-stacked hidden-xs hidden-sm" data-spy="affix" data-offset-top="135">
-            <div id="toc"><ul><li><a class="toc-href" href="#" title="Software Roadmap[持续更新]">Software Roadmap[持续更新]</a><ul><li><a class="toc-href" href="#editor" title="Editor">Editor</a><ul><li><a class="toc-href" href="#editor-or-ide" title="Editor or IDE ?">Editor or IDE ?</a></li><li><a class="toc-href" href="#vim" title="VIM">VIM</a></li><li><a class="toc-href" href="#sublime-text" title="Sublime Text">Sublime Text</a></li><li><a class="toc-href" href="#kdevelop" title="KDevelop">KDevelop</a></li></ul></li><li><a class="toc-href" href="#version-control_1" title="Version Control">Version Control</a><ul><li><a class="toc-href" href="#git" title="Git">Git</a></li></ul></li><li><a class="toc-href" href="#programming_1" title="Programming">Programming</a><ul><li><a class="toc-href" href="#c" title="C">C</a></li><li><a class="toc-href" href="#python" title="Python">Python</a><ul><li><a class="toc-href" href="#pyside" title="PySide">PySide</a></li></ul></li><li><a class="toc-href" href="#regular-expression_1" title="Regular Expression">Regular Expression</a></li><li><a class="toc-href" href="#sql" title="SQL">SQL</a></li></ul></li><li><a class="toc-href" href="#linux_1" title="Linux">Linux</a><ul><li><a class="toc-href" href="#linux_2" title="Linux软件安装和配置">Linux软件安装和配置</a></li></ul></li><li><a class="toc-href" href="#_2" title="嵌入式开发">嵌入式开发</a></li></ul></li></ul></div>
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="放大字体的解决方案">放大字体的解决方案</a><ul><li><a class="toc-href" href="#_1" title="前言">前言</a></li><li><a class="toc-href" href="#dpi" title="调整DPI">调整DPI</a></li><li><a class="toc-href" href="#sddm-config" title="SDDM config">SDDM config</a><ul><li><a class="toc-href" href="#numlock" title="打开键盘NumLock">打开键盘NumLock</a></li></ul></li></ul></li></ul></div>
         </div>
     </div>
         </div>
@@ -294,8 +229,8 @@ OPTION:
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'carloscai'; // required: replace example with your forum shortname
 
-            var disqus_identifier = 'software-roadmap';
-        var disqus_url = 'http://www.carloscai.com/software-roadmap.html';
+            var disqus_identifier = 'Linux-Change-DPI';
+        var disqus_url = 'http://www.carloscai.com/Linux-Change-DPI.html';
 
     var disqus_config = function () {
         this.language = "cn";

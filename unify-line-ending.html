@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="Carlos Cai" />
-        <meta name="description" content="脚本文件的hashbang要以&#39;\n&#39;这种Unix换行符结束，否则脚本以可执行文件直接运行时会出错。现在Windows平台的编辑器都能处理好不同类型换行符的文件，所以我建议统一所有文本文件（源代码）的换行符编码为&#39;\n&#39;。" />
+        <meta name="description" content="脚本文件的hashbang要以&#39;\n&#39;这种Unix换行符结束，否则脚本以可执行文件直接运行时会出错。现在Windows平台的编辑器都能处理好不同类型换行符的文件，所以我建议统一所有文本文件（源代码）的换行符为&#39;\n&#39;。" />
 
 
     <title>统一换行符 - CarlosCai.com</title>
@@ -82,7 +82,7 @@
                         <a href="http://www.carloscai.com/category/software.html">
                             <i class="fa fa-folder-open padding-small"></i>
                             Software
-                            <span class="badge pull-right categorybadge">5</span>
+                            <span class="badge pull-right categorybadge">6</span>
                         </a>
                     </li>
                 </ul></li>
@@ -132,8 +132,8 @@
             <div class="col-lg-9">
                 <div class="entry-content">
                     <h2 id="_1">换行符的编码</h2>
-<p>换行符的前世今生可以参考<a href="http://www.jianshu.com/p/c5bd0fa864ff">"回车与换行的由来"</a>。<br/>
-换行(newline)，也被称为line ending或line break，是一个加在一行文字最后位置的特殊字符，在其后的字符将出现在下一行。<br/>
+<p>换行符的前世今生可以参考<a href="http://www.jianshu.com/p/c5bd0fa864ff">"回车与换行的由来"</a>。</p>
+<p>换行(newline)，也被称为line ending或line break，是一个加在一行文字最后位置的特殊字符，在其后的字符将出现在下一行。<br/>
 我们的问题在于不同操作系统上换行符的默认编码不同,这里列出常见的几个桌面操作系统：</p>
 <ul>
 <li>Unix和类Unix系统（Linux，Mac OS X，FreeBSD等）用<code>\n</code>表示换行符；</li>
@@ -142,7 +142,7 @@
 <table>
 <thead>
 <tr>
-<th>字符</th>
+<th>转义字符</th>
 <th>名称</th>
 <th>ASCII码</th>
 </tr>
@@ -150,7 +150,7 @@
 <tbody>
 <tr>
 <td><code>\n</code></td>
-<td>换行，LF(Line Feed)</td>
+<td>换行，LF(Line Feed)，</td>
 <td>0x0A=10</td>
 </tr>
 <tr>
@@ -160,42 +160,41 @@
 </tr>
 </tbody>
 </table>
-<p>现在的文本编辑器能正确识别和编辑这两种换行符的文本文档，例如Vim和Sublime Text等，Windows的记事本除外。</p>
+<p>现在的文本编辑器能正确识别和编辑这两种换行符的文本文档，例如Vim和Sublime Text等，Windows的记事本除外。不过由于hashbang后必须以<code>\n</code>这种Unix换行符结束等原因，我建议统一换行符为'\n'。</p>
 <h2 id="hashbang">hashbang</h2>
 <p>以<code>#!</code>符号开头、放在脚本文件首行的语句被称为hashbang或<a href="http://en.wikipedia.org/wiki/hashbang">shebang</a>，作用是自动选择对应的解释器，这仅当文件作为可执行脚本直接运行时有效。<br/>
 需要执行的Python脚本第一行通常是<br/>
 <code>#!/usr/bin/env python_version</code></p>
 <p>例如，在Ubuntu下，envPy2.py文件内容如下：</p>
-<div class="default"><pre><span class="c">#!/usr/bin/env python2</span>
+<div class="default"><pre><span></span><span class="ch">#!/usr/bin/env python2</span>
 <span class="kn">import</span> <span class="nn">platform</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"The python version is {} ."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">platform</span><span class="o">.</span><span class="n">python_version</span><span class="p">()))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"The python version is {} ."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">platform</span><span class="o">.</span><span class="n">python_version</span><span class="p">()))</span>
 </pre></div>
 <p>envPy3.py文件内容如下：</p>
-<div class="default"><pre><span class="c">#!/usr/bin/env python3</span>
+<div class="default"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="kn">import</span> <span class="nn">platform</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"The python version is {} ."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">platform</span><span class="o">.</span><span class="n">python_version</span><span class="p">()))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"The python version is {} ."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">platform</span><span class="o">.</span><span class="n">python_version</span><span class="p">()))</span>
 </pre></div>
 <p>脚本运行及其结果：</p>
-<div class="default"><pre><span class="nv">$ </span>chmod +x envPy2.py envPy3.py
-<span class="nv">$ </span>./envPy2.py
+<div class="default"><pre><span></span>$ chmod +x envPy2.py envPy3.py
+$ ./envPy2.py
 The python version is 2.7.6 .
-<span class="nv">$ </span>./envPy3.py
+$ ./envPy3.py
 The python version is 3.4.0 .
 </pre></div>
-<p>需要注意的是，在某些平台上（例如Ubuntu）hashbang行必须以<code>\n</code>这种Unix换行符结束，不能以<code>\r\n</code>为行的结束。否则文件作为可执行脚本运行时，会得到这样的结果<code>: No such file or directory</code>，而使用命令<code>python scriptName</code>却又能正常运行脚本。</p>
-<p>所以我建议在代码中统一使用Unix-style line ending。</p>
-<h2 id="_2">相关设定</h2>
-<h3 id="git">关闭git换行符的自动转换</h3>
-<div class="default"><pre><span class="nv">$ </span>git config --global core.autocrlf <span class="nb">false</span>
+<p>需要注意的是，在某些平台上（例如Ubuntu）hashbang行必须以<code>\n</code>这种Unix换行符结束，不能以<code>\r\n</code>为行的结束。否则文件作为可执行脚本运行时，会得到这样的结果<code>: No such file or directory</code>，而使用命令<code>python scriptName</code>却又正常运行脚本。</p>
+<p>所以我建议在代码中统一使用Unix-style line ending，并做相关设定：</p>
+<p><strong>关闭git line ending的自动转换</strong></p>
+<div class="default"><pre><span></span>$ git config --global core.autocrlf <span class="nb">false</span>
 </pre></div>
-<h3 id="sublime-text">Sublime Text换行符设定</h3>
+<p><strong>Sublime Text换行符设定</strong></p>
 <p>Sublime Text菜单Preferences-&gt;Settings-User，加入以下两行：</p>
-<div class="default"><pre>"default_line_ending": "unix",
-"show_line_endings": true,
+<div class="default"><pre><span></span>" default_line_ending": "unix"，
+" show_line_endings": true,
 </pre></div>
-<p>这样Sublime Tex新建文件换行符都是<code>\n</code>，而且在编辑器右下角的状态栏可以看到当前文件是哪种换行符编码。</p>
-<h3 id="vim">VIM换行符设定</h3>
-<p>在文件_vimrc（Windows）或~/.vimrc(Cygwin)中添加一行 <code>set ffs=unix,dos</code>,设置以后VIM新建的文档换行符将会是<code>\n</code>，但不会自动转换dos换行符的文档，转换可参考<a href="http://vim.wikia.com/wiki/File_format">File format</a>。</p>
+<p>这样Sublime Tex新建文件换行符都是<code>\n</code>，而且在编辑器右下角的状态栏可以看到当前文件是哪种换行符格式。</p>
+<p><strong>VIM换行符设定</strong></p>
+<p>在文件_vimrc（Windows）或~/.vimrc(Cygwin)中添加一行 <code>set ffs=unix,dos</code>,设置以后VIM新建的文档换行符将会是<code>\n</code>，但不会自动转换dos换行符的文档，转换可参考<a href="http://vim.wikia.com/wiki/File_format">File format</a></p>
                 </div>
                 <footer class="text-right">
                     <p>- Carlos Cai</p>
@@ -211,7 +210,7 @@ The python version is 3.4.0 .
             </div>
     <div id="scrollspy">
         <div class="col-lg-3 nav nav-stacked hidden-xs hidden-sm" data-spy="affix" data-offset-top="135">
-            <div id="toc"><ul><li><a class="toc-href" href="#" title="统一换行符">统一换行符</a><ul><li><a class="toc-href" href="#_1" title="换行符的编码">换行符的编码</a></li><li><a class="toc-href" href="#hashbang" title="hashbang">hashbang</a></li><li><a class="toc-href" href="#_2" title="相关设定">相关设定</a><ul><li><a class="toc-href" href="#git" title="关闭git换行符的自动转换">关闭git换行符的自动转换</a></li><li><a class="toc-href" href="#sublime-text" title="Sublime Text换行符设定">Sublime Text换行符设定</a></li><li><a class="toc-href" href="#vim" title="VIM换行符设定">VIM换行符设定</a></li></ul></li></ul></li></ul></div>
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="统一换行符">统一换行符</a><ul><li><a class="toc-href" href="#_1" title="换行符的编码">换行符的编码</a></li><li><a class="toc-href" href="#hashbang" title="hashbang">hashbang</a></li></ul></li></ul></div>
         </div>
     </div>
         </div>

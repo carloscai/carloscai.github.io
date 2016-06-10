@@ -6,10 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="Carlos Cai" />
-        <meta name="description" content="" />
+        <meta name="keywords" content="Bash,Linux" />
+        <meta name="description" content="Bash找不到用户输入的某个命令时，自动调用pacman查找含有该命令的软件包。" />
 
 
-    <title>Recent Articles - CarlosCai.com</title>
+    <title>Bash command-not-found hook - CarlosCai.com</title>
 
         <link rel="stylesheet" href="http://www.carloscai.com/theme/css/bootstrap.min.css" type="text/css" />
 
@@ -78,7 +79,7 @@
                     </a>
                 </li>
                 <li class="panel anti-panel"><ul id="collapse-categories" class="sidebar_submenu collapse ">
-                    <li >
+                    <li class="active">
                         <a href="http://www.carloscai.com/category/software.html">
                             <i class="fa fa-folder-open padding-small"></i>
                             Software
@@ -100,53 +101,84 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-<div class="row">
-    <div class="col-lg-9">
-        <header class="page-header">
-            <h1>Archive</h1>
-        </header>
+<section id="content">
+    <article>
+        <div class="row">
+            <div class="col-lg-9">
+                <header class="page-header">
+                    <h1>
+                        <a href="http://www.carloscai.com/bash-command-not-found-hook.html"
+                           rel="bookmark"
+                           title="Permalink to Bash command-not-found hook">
+                            Bash command-not-found hook
+                        </a>
+                        <small>
+<div class="post-info">
+    <div class="publish-info-block">
+        <small>
+            <span class="published">
+                <i class="fa fa-calendar padding-small"></i><time datetime="2016-05-01T00:00:00+08:00"> 2016-05-01</time>
+            </span>
+            <span class="category">
+                <i class="fa fa-folder-open padding-small"></i><a href="http://www.carloscai.com/category/software.html">Software</a>
+            </span>
+            <span class="tags">
+                <i class="fa fa-tags padding-small"></i>
+                <a href="http://www.carloscai.com/tag/bash.html">Bash</a> /                 <a href="http://www.carloscai.com/tag/linux.html">Linux</a>            </span>
+        </small>
     </div>
+</div><!-- /.post-info -->                        </small>
+                    </h1>
+                </header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="entry-content">
+                    <p>若在bash里输入一个不存在的命令，会是这样：</p>
+<div class="default"><pre><span></span>$  wget
+bash: wget: <span class="nb">command</span> not found
+</pre></div>
+<p>我们可以改写pkgfile的<a href="https://github.com/falconindy/pkgfile/blob/master/extra/command-not-found.bash">command-not-found hook.bash</a> 来实现自动调用pacman搜索不存在的命令，而且不用安装pkgfile。<br/>
+此功能需要pacman的<code>-F</code>支持，即版本&gt;=5.0。<code>pacman -F</code>用的数据库(files database)与<code>pacman -Syu</code>更新用的软件包数据库不同，初次使用时需要运行<code>$ sudo pacman -Fy</code>建立数据库。<br/>
+command_not_found_handle函数中的<code>pkgfile -bv -- "$cmd"</code>改成<code>pacman -Fs "$cmd"</code>，脚本放到路径<code>/opt/</code>下，然后把<code>source /opt/command-not-found.bash</code>添加入.bashrc，效果如下：</p>
+<div class="default"><pre><span></span>$  wget
+wget may be found in the following packages:
+ extra/bash-completion 2.3-4
+     usr/share/bash-completion/completions/wget
+ extra/wget 1.17.1-2
+     usr/bin/wget
+</pre></div>
+<p>可以再优化，改成<code>pacman -Fo /usr/bin/"$cmd"</code></p>
+<div class="default"><pre><span></span>$   wget
+wget may be found in the following packages:
+  usr/bin/wget is owned by extra/wget 1.17.1-2
+</pre></div>
+<p>修改后的这两版脚本可以在我的<a href="https://github.com/carloscai/stuff">github stuff库</a>找到。</p>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>另一个实用功能， <code>pacman -Fl &lt;package&gt;</code>列出package所含的文件&nbsp;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+</ol>
 </div>
-<div class="row">
-    <div class="col-lg-9">
-            <article>
-                <h4>
-                    <time datetime="2016-05-01T00:00:00+08:00"> 2016-05-01</time>
-                    <a href="http://www.carloscai.com/bash-command-not-found-hook.html">Bash command-not-found hook</a>
-                </h4>
-            </article>
-            <article>
-                <h4>
-                    <time datetime="2015-12-30T00:00:00+08:00"> 2015-12-30</time>
-                    <a href="http://www.carloscai.com/qtgui-systemtray-statusnotifier.html">QtGui.QSystemTrayIcon的StatusNotifier支持</a>
-                </h4>
-            </article>
-            <article>
-                <h4>
-                    <time datetime="2015-12-25T00:00:00+08:00"> 2015-12-25</time>
-                    <a href="http://www.carloscai.com/dns-issue-dnsmasq.html">使用国外DNS造成国内网站访问慢的解决方法</a>
-                </h4>
-            </article>
-            <article>
-                <h4>
-                    <time datetime="2015-11-01T00:00:00+08:00"> 2015-11-01</time>
-                    <a href="http://www.carloscai.com/Linux-Change-DPI.html">放大字体的解决方案</a>
-                </h4>
-            </article>
-            <article>
-                <h4>
-                    <time datetime="2015-10-01T00:00:00+08:00"> 2015-10-01</time>
-                    <a href="http://www.carloscai.com/software-roadmap.html">Software Roadmap[持续更新]</a>
-                </h4>
-            </article>
-            <article>
-                <h4>
-                    <time datetime="2014-09-03T00:00:00+08:00"> 2014-09-03</time>
-                    <a href="http://www.carloscai.com/unify-line-ending.html">统一换行符</a>
-                </h4>
-            </article>
-    </div>
-</div>
+                </div>
+                <footer class="text-right">
+                    <p>- Carlos Cai</p>
+                </footer>
+    <section id="comments" class="comments ">
+        <hr/>
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </section>
+            </div>
+        </div>
+    </article>
+</section>
 <footer>
     <hr>
     <div class="row">
@@ -188,24 +220,27 @@
         })();
     </script>
     <!-- End Google Analytics Code -->
-<script>
-    function FadeInOnScroll(ObjectList){
-        ObjectList.each(function(i) {
-            var bottom_of_object = $(this).position().top + $(this).outerHeight();
-            var bottom_of_window = $(window).scrollTop() + $(window).height();
 
-            if( bottom_of_window > bottom_of_object ){
-                $(this).fadeTo(750,1);
-            }
-        });
-    }
+<!-- disqus -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'carloscai'; // required: replace example with your forum shortname
 
-    articles = $("article").fadeTo(0, 0.05);
-    FadeInOnScroll(articles)
+            var disqus_identifier = 'bash-command-not-found-hook';
+        var disqus_url = 'http://www.carloscai.com/bash-command-not-found-hook.html';
 
-    $(window).scroll(function() {
-        FadeInOnScroll(articles)
-    });
+    var disqus_config = function () {
+        this.language = "cn";
+    };
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
 </script>
+<!-- /disqus -->
 </body>
 </html>

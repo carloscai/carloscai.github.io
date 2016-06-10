@@ -1,13 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>CarlosCai.com</title><link href="http://www.carloscai.com/" rel="alternate"></link><link href="http://www.carloscai.com/feeds/all.atom.xml" rel="self"></link><id>http://www.carloscai.com/</id><updated>2015-12-30T00:00:00+08:00</updated><entry><title>QtGui.QSystemTrayIcon的StatusNotifier支持</title><link href="http://www.carloscai.com/qtgui-systemtray-statusnotifier.html" rel="alternate"></link><updated>2015-12-30T00:00:00+08:00</updated><author><name>Carlos Cai</name></author><id>tag:www.carloscai.com,2015-12-30:qtgui-systemtray-statusnotifier.html</id><summary type="html">&lt;p&gt;我的桌面是KDE5的Plasma Desktop，使用QtGui.QSystemTrayIcon类时提示&lt;code&gt;No systemtrayicon available&lt;/code&gt;。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>CarlosCai.com</title><link href="http://www.carloscai.com/" rel="alternate"></link><link href="http://www.carloscai.com/feeds/all.atom.xml" rel="self"></link><id>http://www.carloscai.com/</id><updated>2016-05-01T00:00:00+08:00</updated><entry><title>Bash command-not-found hook</title><link href="http://www.carloscai.com/bash-command-not-found-hook.html" rel="alternate"></link><published>2016-05-01T00:00:00+08:00</published><author><name>Carlos Cai</name></author><id>tag:www.carloscai.com,2016-05-01:bash-command-not-found-hook.html</id><summary type="html">&lt;p&gt;若在bash里输入一个不存在的命令，会是这样：&lt;/p&gt;
+&lt;div class="default"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$  wget
+bash: wget: &lt;span class="nb"&gt;command&lt;/span&gt; not found
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;我们可以改写pkgfile的&lt;a href="https://github.com/falconindy/pkgfile/blob/master/extra/command-not-found.bash"&gt;command-not-found hook.bash&lt;/a&gt; 来实现自动调用pacman搜索不存在的命令，而且不用安装pkgfile。&lt;br/&gt;
+此功能需要pacman的&lt;code&gt;-F&lt;/code&gt;支持，即版本&amp;gt;=5.0。&lt;code&gt;pacman -F&lt;/code&gt;用的数据库(files database)与&lt;code&gt;pacman -Syu&lt;/code&gt;更新用的软件包数据库不同，初次使用时需要运行&lt;code&gt;$ sudo pacman -Fy&lt;/code&gt;建立数据库。&lt;br/&gt;
+command_not_found_handle函数中的&lt;code&gt;pkgfile -bv -- "$cmd"&lt;/code&gt;改成&lt;code&gt;pacman -Fs "$cmd"&lt;/code&gt;，脚本放到路径&lt;code&gt;/opt/&lt;/code&gt;下，然后把&lt;code&gt;source /opt/command-not-found.bash&lt;/code&gt;添加入.bashrc，效果如下：&lt;/p&gt;
+&lt;div class="default"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$  wget
+wget may be found in the following packages:
+ extra/bash-completion 2.3-4
+     usr/share/bash-completion/completions/wget
+ extra/wget 1.17.1-2
+     usr/bin/wget
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;可以再优化，改成&lt;code&gt;pacman -Fo /usr/bin/"$cmd"&lt;/code&gt;&lt;/p&gt;
+&lt;div class="default"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$   wget
+wget may be found in the following packages:
+  usr/bin/wget is owned by extra/wget 1.17.1-2
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;修改后的这两版脚本可以在我的&lt;a href="https://github.com/carloscai/stuff"&gt;github stuff库&lt;/a&gt;找到。&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr/&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;另一个实用功能， &lt;code&gt;pacman -Fl &amp;lt;package&amp;gt;&lt;/code&gt;列出package所含的文件&amp;nbsp;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;↩&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</summary><category term="Bash"></category><category term="Linux"></category></entry><entry><title>QtGui.QSystemTrayIcon的StatusNotifier支持</title><link href="http://www.carloscai.com/qtgui-systemtray-statusnotifier.html" rel="alternate"></link><published>2015-12-30T00:00:00+08:00</published><author><name>Carlos Cai</name></author><id>tag:www.carloscai.com,2015-12-30:qtgui-systemtray-statusnotifier.html</id><summary type="html">&lt;p&gt;我的桌面是KDE5的Plasma Desktop，使用QtGui.QSystemTrayIcon类时提示&lt;code&gt;No systemtrayicon available&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;QSystemTrayIcon执行的是X11的xembed标准，KDE 5执行了另一套标准Status Notifier，详细的可以参见&lt;a href="http://blog.martin-graesslin.com/blog/2014/03/system-tray-in-plasma-next/"&gt;SYSTEM TRAY IN PLASMA NEXT&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;安装&lt;a href="https://launchpad.net/sni-qt"&gt;sni-qt&lt;/a&gt;可以解决这个问题。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;sni-qt, A Qt plugin which turns all QSystemTrayIcon into StatusNotifierItems (appindicators)&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;a href="https://linux.cn/article-6740-1.html"&gt;Plasma 5.5&lt;/a&gt; 说是&amp;ldquo;重写支持了那些不使用 StatusNotifier 的旧式应用，它们的图标放在系统托盘区。&amp;rdquo;但我这里仍需要安装&lt;code&gt;sni-qt&lt;/code&gt;才可使用系统托盘图标。&lt;/p&gt;</summary><category term="PySide"></category><category term="PyQt"></category></entry><entry><title>使用国外DNS造成国内网站访问慢的解决方法</title><link href="http://www.carloscai.com/dns-issue-dnsmasq.html" rel="alternate"></link><updated>2015-12-27T00:00:00+08:00</updated><author><name>Carlos Cai</name></author><id>tag:www.carloscai.com,2015-12-25:dns-issue-dnsmasq.html</id><summary type="html">&lt;p&gt;由于众所周知的原因，为了避免DNS污染与投毒，我会更换DNS服务器，例如Google的8.8.8.8、&lt;a href="http://www.alidns.com/"&gt;阿里公共DNS&lt;/a&gt;的223.5.5.5。Google的DNS服务器受到干扰、丢包严重；阿里公共DNS位于墙内，延迟较小。如果是启用境外的DNS服务器，我会遇到两个问题：&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://linux.cn/article-6740-1.html"&gt;Plasma 5.5&lt;/a&gt; 说是&amp;ldquo;重写支持了那些不使用 StatusNotifier 的旧式应用，它们的图标放在系统托盘区。&amp;rdquo;但我这里仍需要安装&lt;code&gt;sni-qt&lt;/code&gt;才可使用系统托盘图标。&lt;/p&gt;
+&lt;p&gt;Plasma 5.6.3 不需要再安装sni-qt。&lt;/p&gt;</summary><category term="PySide"></category><category term="PyQt"></category></entry><entry><title>使用国外DNS造成国内网站访问慢的解决方法</title><link href="http://www.carloscai.com/dns-issue-dnsmasq.html" rel="alternate"></link><published>2015-12-27T00:00:00+08:00</published><author><name>Carlos Cai</name></author><id>tag:www.carloscai.com,2015-12-25:dns-issue-dnsmasq.html</id><summary type="html">&lt;p&gt;由于众所周知的原因，为了避免DNS污染与投毒，我会更换DNS服务器，例如Google的8.8.8.8、&lt;a href="http://www.alidns.com/"&gt;阿里公共DNS&lt;/a&gt;的223.5.5.5。Google的DNS服务器受到干扰、丢包严重；阿里公共DNS位于墙内，延迟较小。如果是启用境外的DNS服务器，我会遇到两个问题：&lt;/p&gt;
 &lt;p&gt;1.某些网站无法得到可访问的IP，例如&lt;a href="http://www.acfun.tv"&gt;acfun.tv&lt;/a&gt;，境外的OpenDNS返回的是1.1.1.1，国内DNS返回107.155.28.62。&lt;/p&gt;
-&lt;div class="default"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;dig&lt;/span&gt; &lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;acfun&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tv&lt;/span&gt; &lt;span class="mf"&gt;@208.67.222.222&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="kt"&gt;short&lt;/span&gt;
+&lt;div class="default"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;dig&lt;/span&gt; &lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;acfun&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tv&lt;/span&gt; &lt;span class="mf"&gt;@208.67.222.222&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="kt"&gt;short&lt;/span&gt;
 &lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;acfun&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tv&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;qingcdn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
 &lt;span class="n"&gt;u887&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;qingcdn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
 &lt;span class="n"&gt;u887&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;qingcdn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
@@ -19,12 +47,12 @@
 &lt;span class="mf"&gt;107.155.28.62&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;2.返回的IP，可能不是连接速度较好的CDN节点。例如访问淘宝返回47.88.135.232是新加坡的节点。&lt;/p&gt;
-&lt;div class="default"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;dig&lt;/span&gt; &lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;taobao&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt; &lt;span class="mf"&gt;@208.67.222.222&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="kt"&gt;short&lt;/span&gt;
+&lt;div class="default"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;dig&lt;/span&gt; &lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;taobao&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt; &lt;span class="mf"&gt;@208.67.222.222&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="kt"&gt;short&lt;/span&gt;
 &lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;taobao&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;danuoyi&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tbcache&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
 &lt;span class="mf"&gt;47.88.135.232&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;好在我的路由器有提供dnsmasq服务&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;，可以指定某些域名由特定的DNS服务器解析，添加以下的参数即可解决以上问题：&lt;/p&gt;
-&lt;div class="default"&gt;&lt;pre&gt;server=/cn/223.5.5.5
+&lt;div class="default"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;server=/cn/223.5.5.5
 server=/acfun.tv/223.5.5.5
 server=/tmall.com/223.5.5.5
 server=/taobao.com/223.5.5.5
@@ -43,14 +71,14 @@ server=/taobao.com/223.5.5.5
 &lt;p&gt;在ArchLinux下命令dig位于&lt;code&gt;bind-tools&lt;/code&gt;包内，我们使用命令nslookup也可以达到一样的效果。&amp;nbsp;&lt;a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text"&gt;↩&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary></entry><entry><title>放大字体的解决方案</title><link href="http://www.carloscai.com/linux-change-dpi.html" rel="alternate"></link><updated>2015-11-15T00:00:00+08:00</updated><author><name>Carlos Cai</name></author><id>tag:www.carloscai.com,2015-11-01:linux-change-dpi.html</id><summary type="html">&lt;h2 id="_1"&gt;前言&lt;/h2&gt;
+&lt;/div&gt;</summary></entry><entry><title>放大字体的解决方案</title><link href="http://www.carloscai.com/Linux-Change-DPI.html" rel="alternate"></link><published>2015-11-15T00:00:00+08:00</published><author><name>Carlos Cai</name></author><id>tag:www.carloscai.com,2015-11-01:Linux-Change-DPI.html</id><summary type="html">&lt;h2 id="_1"&gt;前言&lt;/h2&gt;
 &lt;p&gt;在我1080p的显示屏上，KDE默认字体大小显示效果是尺寸小、看得费力，而在"System Settings -&amp;gt; Fonts "中调整字体大小作用的范围有限，例如Chromium的bookmarks bar和Sublime Text3的Status Bar不受影响。&lt;/p&gt;
 &lt;p&gt;在Windows上字体显示小我的解决方案是在"控制面板 -&amp;gt; 显示"将默认的100%调成125%（DPI从96调成120），如下图&lt;br/&gt;
 &lt;img alt="Windows7-Enlarge" src="http://www.carloscai.com/images/Windows7-Enlarge-half.png"/&gt;&lt;/p&gt;
 &lt;p&gt;据此，我想调整KDE的DPI来放大或缩小文本和其他项目&amp;mdash;&amp;mdash;我的理解是：96DPI意味着用96个像素距离来表示1英寸，字体的字号是根据英寸来规范、而不是根据像素，当DPI调大同样字号的字体看起来更大。&lt;/p&gt;
 &lt;h2 id="dpi"&gt;调整DPI&lt;/h2&gt;
 &lt;p&gt;我们使用xdpyinfo命令可以看到系统默认是96DPI。&lt;/p&gt;
-&lt;div class="default"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;xdpyinfo &lt;span class="p"&gt;|&lt;/span&gt; grep dots
+&lt;div class="default"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ xdpyinfo &lt;span class="p"&gt;|&lt;/span&gt; grep dots
 resolution:    96x96 dots per inch
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;我是通过Display Manger（这里是SDDM)将DPI参数传给Xserver来实现DPI设置。&lt;/p&gt;
@@ -68,7 +96,7 @@ The configuration file will therefore not be created at package installation tim
 &lt;p&gt;其他桌面环境应该也可以通过类似方法调整DPI。&lt;/p&gt;
 &lt;h2 id="sddm-config"&gt;SDDM config&lt;/h2&gt;
 &lt;h3 id="numlock"&gt;打开键盘NumLock&lt;/h3&gt;
-&lt;p&gt;在sddm.conf中&lt;code&gt;[General]&lt;/code&gt;改&lt;code&gt;Numlock&lt;/code&gt;值为&lt;code&gt;on&lt;/code&gt;实现系统启动到登录界面时键盘的NumLock是打开的。&lt;/p&gt;</summary><category term="Linux"></category></entry><entry><title>Software Roadmap[持续更新]</title><link href="http://www.carloscai.com/software-roadmap.html" rel="alternate"></link><updated>2015-11-15T00:00:00+08:00</updated><author><name>Carlos Cai</name></author><id>tag:www.carloscai.com,2015-10-01:software-roadmap.html</id><summary type="html">&lt;p&gt;版本历史：&lt;/p&gt;
+&lt;p&gt;在sddm.conf中&lt;code&gt;[General]&lt;/code&gt;改&lt;code&gt;Numlock&lt;/code&gt;值为&lt;code&gt;on&lt;/code&gt;实现系统启动到登录界面时键盘的NumLock是打开的。&lt;/p&gt;</summary><category term="Linux"></category></entry><entry><title>Software Roadmap[持续更新]</title><link href="http://www.carloscai.com/software-roadmap.html" rel="alternate"></link><published>2015-11-15T00:00:00+08:00</published><author><name>Carlos Cai</name></author><id>tag:www.carloscai.com,2015-10-01:software-roadmap.html</id><summary type="html">&lt;p&gt;版本历史：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;2014.09.03初稿，含Editor、版本控制、正则表达式。&lt;/li&gt;
 &lt;/ul&gt;
@@ -103,8 +131,8 @@ The configuration file will therefore not be created at package installation tim
 &lt;li&gt;Anaconda插件&lt;/li&gt;
 &lt;li&gt;MarkdownEditing插件&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="eclipse"&gt;Eclipse&lt;/h3&gt;
-&lt;p&gt;pass&lt;/p&gt;
+&lt;h3 id="kdevelop"&gt;KDevelop&lt;/h3&gt;
+&lt;p&gt;C程序我会使用VIM，但C++程序我还是选择KDevelop，因为我用来配合VIM生成tags的GNU Global对C++支持不够好，例如对没有后缀的iostream头文件是无法生成tag的。&lt;/p&gt;
 &lt;h2 id="version-control_1"&gt;Version Control&lt;/h2&gt;
 &lt;p&gt;版本控制（Version Control,或称为Revision control、Source Control），更多应用在源码管理（SCM，Source Code Management），实现代码改动记录和维护等功能。&lt;br/&gt;
 我第一次正式使用版本控制软件是2012年在职时编写一个产品的固件（Firmware），项目并没有明确要求版本控制，只是我个人为了方便代码管理，选择了使用TortoiseSVN。&lt;br/&gt;
@@ -135,7 +163,7 @@ The configuration file will therefore not be created at package installation tim
 &lt;h3 id="regular-expression_1"&gt;Regular Expression&lt;/h3&gt;
 &lt;p&gt;正则表达式(=Regular Expression，简称regex或regexp），需要注意的是在支持正则表达式的编程语言和工具中存在语法差异，基本上有三大流派PCRE（Perl Compatible Regular Expression）、BRE（Basic Regular Expression）、ERE（Extended Regular Expression），其中BRE和ERE是IEEE POSIX 标准定义的。&lt;br/&gt;
 以grep为例，它可以支持三种流派。&lt;/p&gt;
-&lt;div class="default"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;grep --help
+&lt;div class="default"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ grep --help
 Usage: grep &lt;span class="o"&gt;[&lt;/span&gt;OPTION&lt;span class="o"&gt;]&lt;/span&gt;... PATTERN &lt;span class="o"&gt;[&lt;/span&gt;FILE&lt;span class="o"&gt;]&lt;/span&gt;...
 Search &lt;span class="k"&gt;for&lt;/span&gt; PATTERN in each FILE or standard input.
 PATTERN is, by default, a basic regular expression&lt;span class="o"&gt;(&lt;/span&gt;BRE&lt;span class="o"&gt;)&lt;/span&gt;.
@@ -158,9 +186,9 @@ OPTION:
 &lt;p&gt;我建议的教程：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;《嵌入式Linux应用开发完全手册》，作者是韦东山。&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="roadmap"></category></entry><entry><title>统一换行符</title><link href="http://www.carloscai.com/unify-line-ending.html" rel="alternate"></link><updated>2015-12-03T00:00:00+08:00</updated><author><name>Carlos Cai</name></author><id>tag:www.carloscai.com,2014-09-03:unify-line-ending.html</id><summary type="html">&lt;h2 id="_1"&gt;换行符的编码&lt;/h2&gt;
-&lt;p&gt;换行符的前世今生可以参考&lt;a href="http://www.jianshu.com/p/c5bd0fa864ff"&gt;"回车与换行的由来"&lt;/a&gt;。&lt;br/&gt;
-换行(newline)，也被称为line ending或line break，是一个加在一行文字最后位置的特殊字符，在其后的字符将出现在下一行。&lt;br/&gt;
+&lt;/ul&gt;</summary><category term="roadmap"></category></entry><entry><title>统一换行符</title><link href="http://www.carloscai.com/unify-line-ending.html" rel="alternate"></link><published>2015-12-03T00:00:00+08:00</published><author><name>Carlos Cai</name></author><id>tag:www.carloscai.com,2014-09-03:unify-line-ending.html</id><summary type="html">&lt;h2 id="_1"&gt;换行符的编码&lt;/h2&gt;
+&lt;p&gt;换行符的前世今生可以参考&lt;a href="http://www.jianshu.com/p/c5bd0fa864ff"&gt;"回车与换行的由来"&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;换行(newline)，也被称为line ending或line break，是一个加在一行文字最后位置的特殊字符，在其后的字符将出现在下一行。&lt;br/&gt;
 我们的问题在于不同操作系统上换行符的默认编码不同,这里列出常见的几个桌面操作系统：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Unix和类Unix系统（Linux，Mac OS X，FreeBSD等）用&lt;code&gt;\n&lt;/code&gt;表示换行符；&lt;/li&gt;
@@ -169,7 +197,7 @@ OPTION:
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th&gt;字符&lt;/th&gt;
+&lt;th&gt;转义字符&lt;/th&gt;
 &lt;th&gt;名称&lt;/th&gt;
 &lt;th&gt;ASCII码&lt;/th&gt;
 &lt;/tr&gt;
@@ -177,7 +205,7 @@ OPTION:
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;\n&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;换行，LF(Line Feed)&lt;/td&gt;
+&lt;td&gt;换行，LF(Line Feed)，&lt;/td&gt;
 &lt;td&gt;0x0A=10&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -187,39 +215,38 @@ OPTION:
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;现在的文本编辑器能正确识别和编辑这两种换行符的文本文档，例如Vim和Sublime Text等，Windows的记事本除外。&lt;/p&gt;
+&lt;p&gt;现在的文本编辑器能正确识别和编辑这两种换行符的文本文档，例如Vim和Sublime Text等，Windows的记事本除外。不过由于hashbang后必须以&lt;code&gt;\n&lt;/code&gt;这种Unix换行符结束等原因，我建议统一换行符为'\n'。&lt;/p&gt;
 &lt;h2 id="hashbang"&gt;hashbang&lt;/h2&gt;
 &lt;p&gt;以&lt;code&gt;#!&lt;/code&gt;符号开头、放在脚本文件首行的语句被称为hashbang或&lt;a href="http://en.wikipedia.org/wiki/hashbang"&gt;shebang&lt;/a&gt;，作用是自动选择对应的解释器，这仅当文件作为可执行脚本直接运行时有效。&lt;br/&gt;
 需要执行的Python脚本第一行通常是&lt;br/&gt;
 &lt;code&gt;#!/usr/bin/env python_version&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;例如，在Ubuntu下，envPy2.py文件内容如下：&lt;/p&gt;
-&lt;div class="default"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/env python2&lt;/span&gt;
+&lt;div class="default"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python2&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;platform&lt;/span&gt;
-&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"The python version is {} ."&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;platform&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;python_version&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"The python version is {} ."&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;platform&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;python_version&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;envPy3.py文件内容如下：&lt;/p&gt;
-&lt;div class="default"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;div class="default"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python3&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;platform&lt;/span&gt;
-&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"The python version is {} ."&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;platform&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;python_version&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"The python version is {} ."&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;platform&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;python_version&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;脚本运行及其结果：&lt;/p&gt;
-&lt;div class="default"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;chmod +x envPy2.py envPy3.py
-&lt;span class="nv"&gt;$ &lt;/span&gt;./envPy2.py
+&lt;div class="default"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ chmod +x envPy2.py envPy3.py
+$ ./envPy2.py
 The python version is 2.7.6 .
-&lt;span class="nv"&gt;$ &lt;/span&gt;./envPy3.py
+$ ./envPy3.py
 The python version is 3.4.0 .
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;需要注意的是，在某些平台上（例如Ubuntu）hashbang行必须以&lt;code&gt;\n&lt;/code&gt;这种Unix换行符结束，不能以&lt;code&gt;\r\n&lt;/code&gt;为行的结束。否则文件作为可执行脚本运行时，会得到这样的结果&lt;code&gt;: No such file or directory&lt;/code&gt;，而使用命令&lt;code&gt;python scriptName&lt;/code&gt;却又能正常运行脚本。&lt;/p&gt;
-&lt;p&gt;所以我建议在代码中统一使用Unix-style line ending。&lt;/p&gt;
-&lt;h2 id="_2"&gt;相关设定&lt;/h2&gt;
-&lt;h3 id="git"&gt;关闭git换行符的自动转换&lt;/h3&gt;
-&lt;div class="default"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git config --global core.autocrlf &lt;span class="nb"&gt;false&lt;/span&gt;
+&lt;p&gt;需要注意的是，在某些平台上（例如Ubuntu）hashbang行必须以&lt;code&gt;\n&lt;/code&gt;这种Unix换行符结束，不能以&lt;code&gt;\r\n&lt;/code&gt;为行的结束。否则文件作为可执行脚本运行时，会得到这样的结果&lt;code&gt;: No such file or directory&lt;/code&gt;，而使用命令&lt;code&gt;python scriptName&lt;/code&gt;却又正常运行脚本。&lt;/p&gt;
+&lt;p&gt;所以我建议在代码中统一使用Unix-style line ending，并做相关设定：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关闭git line ending的自动转换&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="default"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git config --global core.autocrlf &lt;span class="nb"&gt;false&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id="sublime-text"&gt;Sublime Text换行符设定&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Sublime Text换行符设定&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Sublime Text菜单Preferences-&amp;gt;Settings-User，加入以下两行：&lt;/p&gt;
-&lt;div class="default"&gt;&lt;pre&gt;"default_line_ending": "unix",
-"show_line_endings": true,
+&lt;div class="default"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;" default_line_ending": "unix"，
+" show_line_endings": true,
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;这样Sublime Tex新建文件换行符都是&lt;code&gt;\n&lt;/code&gt;，而且在编辑器右下角的状态栏可以看到当前文件是哪种换行符编码。&lt;/p&gt;
-&lt;h3 id="vim"&gt;VIM换行符设定&lt;/h3&gt;
-&lt;p&gt;在文件_vimrc（Windows）或~/.vimrc(Cygwin)中添加一行 &lt;code&gt;set ffs=unix,dos&lt;/code&gt;,设置以后VIM新建的文档换行符将会是&lt;code&gt;\n&lt;/code&gt;，但不会自动转换dos换行符的文档，转换可参考&lt;a href="http://vim.wikia.com/wiki/File_format"&gt;File format&lt;/a&gt;。&lt;/p&gt;</summary></entry></feed>
+&lt;p&gt;这样Sublime Tex新建文件换行符都是&lt;code&gt;\n&lt;/code&gt;，而且在编辑器右下角的状态栏可以看到当前文件是哪种换行符格式。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;VIM换行符设定&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在文件_vimrc（Windows）或~/.vimrc(Cygwin)中添加一行 &lt;code&gt;set ffs=unix,dos&lt;/code&gt;,设置以后VIM新建的文档换行符将会是&lt;code&gt;\n&lt;/code&gt;，但不会自动转换dos换行符的文档，转换可参考&lt;a href="http://vim.wikia.com/wiki/File_format"&gt;File format&lt;/a&gt;&lt;/p&gt;</summary></entry></feed>

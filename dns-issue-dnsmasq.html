@@ -82,7 +82,7 @@
                         <a href="http://www.carloscai.com/category/software.html">
                             <i class="fa fa-folder-open padding-small"></i>
                             Software
-                            <span class="badge pull-right categorybadge">5</span>
+                            <span class="badge pull-right categorybadge">6</span>
                         </a>
                     </li>
                 </ul></li>
@@ -133,7 +133,7 @@
                 <div class="entry-content">
                     <p>由于众所周知的原因，为了避免DNS污染与投毒，我会更换DNS服务器，例如Google的8.8.8.8、<a href="http://www.alidns.com/">阿里公共DNS</a>的223.5.5.5。Google的DNS服务器受到干扰、丢包严重；阿里公共DNS位于墙内，延迟较小。如果是启用境外的DNS服务器，我会遇到两个问题：</p>
 <p>1.某些网站无法得到可访问的IP，例如<a href="http://www.acfun.tv">acfun.tv</a>，境外的OpenDNS返回的是1.1.1.1，国内DNS返回107.155.28.62。</p>
-<div class="default"><pre><span class="err">$</span> <span class="n">dig</span> <span class="n">www</span><span class="p">.</span><span class="n">acfun</span><span class="p">.</span><span class="n">tv</span> <span class="mf">@208.67.222.222</span> <span class="o">+</span><span class="kt">short</span>
+<div class="default"><pre><span></span><span class="err">$</span> <span class="n">dig</span> <span class="n">www</span><span class="p">.</span><span class="n">acfun</span><span class="p">.</span><span class="n">tv</span> <span class="mf">@208.67.222.222</span> <span class="o">+</span><span class="kt">short</span>
 <span class="n">www</span><span class="p">.</span><span class="n">acfun</span><span class="p">.</span><span class="n">tv</span><span class="p">.</span><span class="n">qingcdn</span><span class="p">.</span><span class="n">com</span><span class="p">.</span>
 <span class="n">u887</span><span class="p">.</span><span class="n">v</span><span class="p">.</span><span class="n">qingcdn</span><span class="p">.</span><span class="n">com</span><span class="p">.</span>
 <span class="n">u887</span><span class="p">.</span><span class="n">v</span><span class="p">.</span><span class="n">f</span><span class="p">.</span><span class="n">qingcdn</span><span class="p">.</span><span class="n">com</span><span class="p">.</span>
@@ -145,12 +145,12 @@
 <span class="mf">107.155.28.62</span>
 </pre></div>
 <p>2.返回的IP，可能不是连接速度较好的CDN节点。例如访问淘宝返回47.88.135.232是新加坡的节点。</p>
-<div class="default"><pre><span class="err">$</span> <span class="n">dig</span> <span class="n">www</span><span class="p">.</span><span class="n">taobao</span><span class="p">.</span><span class="n">com</span> <span class="mf">@208.67.222.222</span> <span class="o">+</span><span class="kt">short</span>
+<div class="default"><pre><span></span><span class="err">$</span> <span class="n">dig</span> <span class="n">www</span><span class="p">.</span><span class="n">taobao</span><span class="p">.</span><span class="n">com</span> <span class="mf">@208.67.222.222</span> <span class="o">+</span><span class="kt">short</span>
 <span class="n">www</span><span class="p">.</span><span class="n">taobao</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">danuoyi</span><span class="p">.</span><span class="n">tbcache</span><span class="p">.</span><span class="n">com</span><span class="p">.</span>
 <span class="mf">47.88.135.232</span>
 </pre></div>
 <p>好在我的路由器有提供dnsmasq服务<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>，可以指定某些域名由特定的DNS服务器解析，添加以下的参数即可解决以上问题：</p>
-<div class="default"><pre>server=/cn/223.5.5.5
+<div class="default"><pre><span></span>server=/cn/223.5.5.5
 server=/acfun.tv/223.5.5.5
 server=/tmall.com/223.5.5.5
 server=/taobao.com/223.5.5.5
